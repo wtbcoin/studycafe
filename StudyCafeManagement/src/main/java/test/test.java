@@ -16,6 +16,5 @@ public static void main(String[] args) {
 	System.out.println("수정12");
 	System.out.println("수정13");
 	System.out.println("수정14");
-	int a = 1;
 }
 }
