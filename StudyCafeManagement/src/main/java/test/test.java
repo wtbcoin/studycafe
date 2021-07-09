@@ -20,7 +20,7 @@ public static void main(String[] args) {
 	System.out.println("¼öÁ¤15");
 		int a = 1;
 		double b = 2.0;
-		float c = 3.2f;
+		float c = 3.2f; 
 		int dsfsd2 = 3;
 }
 }
