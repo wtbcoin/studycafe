@@ -8,5 +8,6 @@ public class test2 {
 		int c;
 		int d, s;
 		int k;
+		System.out.println("fdsfsd");
 	}
 }
