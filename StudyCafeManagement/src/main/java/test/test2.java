@@ -10,5 +10,6 @@ public class test2 {
 		int k;
 		System.out.println("fdsfsd");
 		int i;
+		int dfsdf;
 	}
 }
