@@ -5,8 +5,4 @@ CREATE TABLE Seat(
 	seat_image varchar2(20) not null,
 );
 
-
-
-
-
 CREATE SEQUENCE Seat_seq;

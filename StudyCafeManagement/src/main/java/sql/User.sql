@@ -8,18 +8,6 @@ CREATE TABLE User(
 	user_email varchar2(30),
 	user_birth date not null
 	);
-	
-	
-	
-)
-
-CREATE TABLE member1(
-	id NUMBER PRIMARY KEY,
-	name VARCHAR2(20),
-	email  VARCHAR2(30),
-	phone VARCHAR2(20)
-);
-
 
 
 CREATE SEQUENCE member1_seq;
