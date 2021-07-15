@@ -17,4 +17,6 @@ CREATE TABLE member1(
 	phone VARCHAR2(20)
 );
 
+
+
 CREATE SEQUENCE member1_seq;
