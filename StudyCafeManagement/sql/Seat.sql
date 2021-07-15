@@ -9,5 +9,4 @@ CREATE TABLE Seat(
 
 
 
-
 CREATE SEQUENCE Seat_seq;
