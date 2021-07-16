@@ -52,5 +52,12 @@ public class MemberServiceImpl implements MemberService {
 		// TODO Auto-generated method stub
 		return memberDAO.getLoginMember(member);
 	}
+	
+	@Override
+	public void joinMember(MemberVO member) {
+		// TODO Auto-generated method stub
+		memberDAO.insertMemberVO(member);
+		
+	}
 
 }

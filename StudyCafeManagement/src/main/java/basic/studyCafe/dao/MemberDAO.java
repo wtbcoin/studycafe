@@ -11,4 +11,5 @@ public interface MemberDAO {
 	public void deleteMember(int id);
 	public Member selectUpdateMember(int id);
 	public int getLoginMember(MemberVO member);
+	public void insertMemberVO(MemberVO member);
 }

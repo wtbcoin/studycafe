@@ -1,16 +1,17 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>로그인</title>
 <style>
-form{
+form {
 	text-align: center;
-	margin:0 auto;
+	margin: 0 auto;
 }
-.border{
+
+.border {
 	margin: 0 auto;
 	width: 400px;
 	height: 500px;
@@ -18,7 +19,7 @@ form{
 	border-radius: 10%;
 }
 
-img{
+img {
 	margin-top: 20px;
 	margin-bottom: 80px;
 }
@@ -27,19 +28,37 @@ input {
 	width: 300px;
 }
 </style>
+<script>
+	function gotoJoinForm() {
+		location.href = "JoinForm";
+	}
+	function gotoFindId() {
+		location.href = "findId";
+	}
+	function gotoFindPassword() {
+		location.href = "findPassword";
+	}
+</script>
 </head>
 <body>
-	<img src = "logo.jpg" style = "width: 200px; height: 200px">
-<form action = "login" method = "post">
-	<div class = "border">
-	<h1>로그인</h1>
-	<img src = "logo.jpg"><br>
-	<input type = "text" name = "id" id = "id" placeholder = "아이디를 입력해주세요."><br>
-	<input type = "password" name = "password" id = "password" placeholder = "비밀번호를 입력해주세요."><br><br>
-	<input type = "submit" value = "로그인">
-	
+	<div class="border">
+
+		<form action="login" method="post">
+
+			<h1>로그인</h1>
+			<img src="logo.jpg"><br> <input type="text" name="id"
+				id="id" placeholder="아이디를 입력해주세요."><br> <input
+				type="password" name="password" id="password"
+				placeholder="비밀번호를 입력해주세요."><br> <br> <input
+				type="submit" value="로그인"><br> <br>
+		</form>
+
+		<button onclick="gotoJoinForm()">회원가입</button>
+		<button onclick="gotoFindId()">아이디 찾기</button>
+		<button onclick="gotoFindPassword()">비밀번호 찾기</button>
+
+		</form>
 	</div>
 
-</form>
 </body>
 </html>

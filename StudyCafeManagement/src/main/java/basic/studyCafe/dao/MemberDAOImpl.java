@@ -60,6 +60,20 @@ public class MemberDAOImpl implements MemberDAO {
 		return sqlSession.selectOne("basic.studyCafe.mybatis.MemberMapper.getLoginMember", member);
 	}
 	
+	@Override
+	public void insertMemberVO(MemberVO member) {
+		// TODO Auto-generated method stub
+		MemberMapper memberMapper =
+		sqlSession.getMapper(MemberMapper.class);
+		memberMapper.insertMemberVO(member);
+		
+	}
 	
+	/*
+	 * @Override public void insertMember(Member member) { // TODO Auto-generated
+	 * method stub MemberMapper memberMapper =
+	 * sqlSession.getMapper(MemberMapper.class); memberMapper.insertMember(member);
+	 * }
+	 */
 
 }
