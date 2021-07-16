@@ -14,4 +14,5 @@ public interface MemberService {
 	public Member getModifyMember(int id);
 	public void modifyMember(Member member);
 	public int checkMember(MemberVO member);
+	public void joinMember(MemberVO member);
 }

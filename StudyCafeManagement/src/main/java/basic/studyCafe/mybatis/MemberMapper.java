@@ -3,6 +3,7 @@ package basic.studyCafe.mybatis;
 import java.util.ArrayList;
 
 import basic.studyCafe.vo.Member;
+import basic.studyCafe.vo.MemberVO;
 
 public interface MemberMapper {
 
@@ -11,4 +12,5 @@ public interface MemberMapper {
 	void updateMember(Member member);
 	void deleteMember(int id);
 	Member getUpdateMember(int id);
+	void insertMemberVO(MemberVO member);
 }

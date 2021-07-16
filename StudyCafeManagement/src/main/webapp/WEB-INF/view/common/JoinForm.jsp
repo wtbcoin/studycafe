@@ -32,10 +32,10 @@
 		</div>
 		<!-- 비밀번호 재확인 -->
 		<div class="form-group">
-			<label for="user_pw2">비밀번호 확인</label>
-			<inpt type="password" class="form-control" id="user_pw2"
-				name="user_pw2" placeholder="Confirm Password" required>
-			<div class="check_font" id="pw2_check"></div>
+			<label for="user_checkpw">비밀번호 확인</label>
+			<inpt type="password" class="form-control" id="user_checkpw"
+				name="user_checkpw" placeholder="Confirm Password" required>
+			<div class="check_font" id="user_checkpw"></div>
 		</div>
 		<!-- 이름 -->
 		<div class="form-group">

@@ -41,25 +41,24 @@ input {
 </script>
 </head>
 <body>
-	<form action="login" method="post">
-		<div class="border">
+	<div class="border">
+
+		<form action="login" method="post">
+
 			<h1>로그인</h1>
 			<img src="logo.jpg"><br> <input type="text" name="id"
 				id="id" placeholder="아이디를 입력해주세요."><br> <input
 				type="password" name="password" id="password"
-				placeholder="비밀번호를 입력해주세요."><br>
-			<br> <input type="submit" value="로그인"><br>
-			<br>
-		</div>
+				placeholder="비밀번호를 입력해주세요."><br> <br> <input
+				type="submit" value="로그인"><br> <br>
+		</form>
 
-	</form>
+		<button onclick="gotoJoinForm()">회원가입</button>
+		<button onclick="gotoFindId()">아이디 찾기</button>
+		<button onclick="gotoFindPassword()">비밀번호 찾기</button>
 
-	<button onclick="gotoJoinForm()">회원가입</button>
-	<button onclick="gotoFindId()">아이디 찾기</button>
-	<button onclick="gotoFindPassword()">비밀번호 찾기</button>
+		</form>
+	</div>
 
-
-
-	</form>
 </body>
 </html>
