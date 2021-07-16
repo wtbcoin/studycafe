@@ -20,6 +20,7 @@ public static void main(String[] args) {
 	System.out.println("수정15");
 		int a = 1;
 		double b = 2.0;
+		int c = 2; //실험용 삭제가능
 		float c = 3.2f; 
 		int dsfsd2 = 3;
 }
