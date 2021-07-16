@@ -1,4 +1,4 @@
-package jung.spring.vo;
+package basic.studyCafe.vo;
 
 public class Member {
 	private int id;

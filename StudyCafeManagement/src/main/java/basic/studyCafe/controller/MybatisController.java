@@ -1,4 +1,4 @@
-package jung.spring.controller;
+package basic.studyCafe.controller;
 
 import java.util.List;
 
@@ -9,8 +9,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
-import jung.spring.service.MemberService;
-import jung.spring.vo.Member;
+import basic.studyCafe.service.MemberService;
+import basic.studyCafe.vo.Member;
 
 @Controller
 public class MybatisController {

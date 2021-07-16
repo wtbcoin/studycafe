@@ -1,4 +1,4 @@
-package jung.spring.controller;
+package basic.studyCafe.controller;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -17,19 +17,6 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 @RequestMapping("/seat/*")
 public class SeatController {
 
-	/*
-	 * private static final Logger logger =
-	 * LoggerFactory.getLogger(SeatController.class);
-	 */
-	/*
-	 * @Inject private SeatService service;
-	 * 
-	 * @Inject private LockifmListService service2;
-	 * 
-	 * @Inject private SeatifmService service1;
-	 * 
-	 * @Inject private SlService service4;
-	 */
 
 	@RequestMapping(value = "/list", method = RequestMethod.GET)
 	public String listPage() throws Exception {

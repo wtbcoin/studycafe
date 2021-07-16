@@ -1,4 +1,4 @@
-package jung.spring.dao;
+package basic.studyCafe.dao;
 
 import java.util.ArrayList;
 
@@ -6,8 +6,9 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import jung.spring.mybatis.MemberMapper;
-import jung.spring.vo.Member;
+import basic.studyCafe.mybatis.MemberMapper;
+import basic.studyCafe.vo.Member;
+import basic.studyCafe.vo.MemberVO;
 
 @Repository
 public class MemberDAOImpl implements MemberDAO {
@@ -52,5 +53,13 @@ public class MemberDAOImpl implements MemberDAO {
 		Member member = memberMapper.getUpdateMember(id);
 		return member;
 	}
+	
+	@Override
+	public int getLoginMember(MemberVO member) {
+		// TODO Auto-generated method stub
+		return sqlSession.selectOne("basic.studyCafe.mybatis.MemberMapper.getLoginMember", member);
+	}
+	
+	
 
 }
