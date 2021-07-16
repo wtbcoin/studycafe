@@ -8,7 +8,7 @@
 </head>
 <body>
 run on server
-<h3>좌석현황</h3>
+<h3>seatlist</h3>
 
 </body>
 </html>
