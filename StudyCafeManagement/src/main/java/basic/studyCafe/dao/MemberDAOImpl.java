@@ -8,6 +8,7 @@ import org.springframework.stereotype.Repository;
 
 import basic.studyCafe.mybatis.MemberMapper;
 import basic.studyCafe.vo.Member;
+import basic.studyCafe.vo.MemberVO;
 
 @Repository
 public class MemberDAOImpl implements MemberDAO {
@@ -52,5 +53,13 @@ public class MemberDAOImpl implements MemberDAO {
 		Member member = memberMapper.getUpdateMember(id);
 		return member;
 	}
+	
+	@Override
+	public int getLoginMember(MemberVO member) {
+		// TODO Auto-generated method stub
+		return sqlSession.selectOne("basic.studyCafe.mybatis.MemberMapper.getLoginMember", member);
+	}
+	
+	
 
 }

@@ -14,6 +14,7 @@ http://www.springframework.org/schema/jee/spring-jee.xsd"
 	  <!-- jee:jndi-lookup 사용 -->
 	  <jee:jndi-lookup jndi-name="/jdbc/jsptest" id = "dataSource"
 	  resource-ref = "true"></jee:jndi-lookup>
+	  
 	  <bean id = "sqlSessionFactory" class = "org.mybatis.spring.SqlSessionFactoryBean">
 	  	<property name="dataSource" ref = "dataSource"></property>
 	  	<property name="mapperLocations" value = "classpath:basic/studyCafe/mybatis/*.xml"></property>
@@ -23,4 +24,5 @@ http://www.springframework.org/schema/jee/spring-jee.xsd"
 	  <bean id = "sqlSessionTemplate" class = "org.mybatis.spring.SqlSessionTemplate">
 	  	<constructor-arg ref = "sqlSessionFactory"></constructor-arg>
 	  </bean>
+	  
 </beans>

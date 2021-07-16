@@ -5,5 +5,7 @@
   <configuration>
   	<typeAliases>
   		<typeAlias type="basic.studyCafe.vo.Member" alias = "member"/>
+  		<typeAlias type="basic.studyCafe.vo.MemberVO" alias = "MemberVO"/>
+  		
   	</typeAliases>
   </configuration>
