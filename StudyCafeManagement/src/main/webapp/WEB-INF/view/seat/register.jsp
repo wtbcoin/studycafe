@@ -7,7 +7,8 @@
 <title>Insert title here</title>
 <script>
 	function showbtn(id){
-		document.write(id);
+		var num = document.getElementById("seatNum");
+		num.innerHTML = id;
 	}
 </script>
 <style>
@@ -22,7 +23,6 @@ button {
 </head>
 <body>
 	<h1>좌석 예약</h1>
-	<h2>test</h2>
 
 <div id = "btnDiv">
 	<script language="javaScript">
@@ -45,7 +45,7 @@ button {
 	<br><br><br>
 	
 	<form action="reserve" method = "post" name = "reserveForm">
-		<label for = "seatNum">좌석 번호 : </label><br>
+		<h3>좌석 번호 : <span id = "seatNum"></span></h3><br>
 		<input type = "submit" value = "예약"/>
 	</form>
 
