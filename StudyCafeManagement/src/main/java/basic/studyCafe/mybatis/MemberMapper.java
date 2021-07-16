@@ -1,8 +1,8 @@
-package jung.spring.mybatis;
+package basic.studyCafe.mybatis;
 
 import java.util.ArrayList;
 
-import jung.spring.vo.Member;
+import basic.studyCafe.vo.Member;
 
 public interface MemberMapper {
 

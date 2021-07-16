@@ -1,12 +1,12 @@
-package jung.spring.service;
+package basic.studyCafe.service;
 
 import java.util.ArrayList;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import jung.spring.dao.MemberDAO;
-import jung.spring.vo.Member;
+import basic.studyCafe.dao.MemberDAO;
+import basic.studyCafe.vo.Member;
 
 @Service
 public class MemberServiceImpl implements MemberService {

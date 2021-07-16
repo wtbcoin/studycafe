@@ -1,10 +1,10 @@
-package jung.spring.service;
+package basic.studyCafe.service;
 
 import java.util.ArrayList;
 
 import org.springframework.stereotype.Service;
 
-import jung.spring.vo.Member;
+import basic.studyCafe.vo.Member;
 
 public interface MemberService {
 	public ArrayList<Member> getMembers();

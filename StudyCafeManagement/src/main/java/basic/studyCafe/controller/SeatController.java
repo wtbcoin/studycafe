@@ -1,4 +1,4 @@
-package jung.spring.controller;
+package basic.studyCafe.controller;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;

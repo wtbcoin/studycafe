@@ -1,4 +1,4 @@
-package jung.spring.dao;
+package basic.studyCafe.dao;
 
 import java.util.ArrayList;
 
@@ -6,8 +6,8 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import jung.spring.mybatis.MemberMapper;
-import jung.spring.vo.Member;
+import basic.studyCafe.mybatis.MemberMapper;
+import basic.studyCafe.vo.Member;
 
 @Repository
 public class MemberDAOImpl implements MemberDAO {

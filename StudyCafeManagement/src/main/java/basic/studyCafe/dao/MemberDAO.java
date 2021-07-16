@@ -1,8 +1,8 @@
-package jung.spring.dao;
+package basic.studyCafe.dao;
 
 import java.util.ArrayList;
 
-import jung.spring.vo.Member;
+import basic.studyCafe.vo.Member;
 
 public interface MemberDAO {
 	public ArrayList<Member> getMembers();
