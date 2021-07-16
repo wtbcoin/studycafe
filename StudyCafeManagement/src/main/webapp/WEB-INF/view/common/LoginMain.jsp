@@ -29,7 +29,7 @@ input {
 </style>
 </head>
 <body>
-	<img src = "./logo.jpg" style = "width: 200px; height: 200px">
+	<img src = "logo.jpg" style = "width: 200px; height: 200px">
 <form action = "login" method = "post">
 	<div class = "border">
 	<h1>로그인</h1>
