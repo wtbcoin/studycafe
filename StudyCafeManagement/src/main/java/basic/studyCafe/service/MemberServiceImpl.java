@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import basic.studyCafe.dao.MemberDAO;
 import basic.studyCafe.vo.Member;
+import basic.studyCafe.vo.MemberVO;
 
 @Service
 public class MemberServiceImpl implements MemberService {
@@ -44,6 +45,12 @@ public class MemberServiceImpl implements MemberService {
 	public void modifyMember(Member member) {
 		// TODO Auto-generated method stub
 		memberDAO.updateMember(member);
+	}
+
+	@Override
+	public int checkMember(MemberVO member) {
+		// TODO Auto-generated method stub
+		return memberDAO.getLoginMember(member);
 	}
 
 }

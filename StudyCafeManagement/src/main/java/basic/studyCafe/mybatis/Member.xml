@@ -2,7 +2,7 @@
 <!DOCTYPE mapper
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace = "jung.spring.mybatis.MemberMapper">
+<mapper namespace = "basic.studyCafe.mybatis.MemberMapper">
 	<!-- namespace가 Mapper 인터페이스의 풀패스와 동일해야 함 -->
 	
 	<resultMap type="member" id="MemberResultMap">
@@ -12,6 +12,11 @@
 		<result property="phone" column="PHONE"/>
 	</resultMap>
 	
+	<resultMap type = "MemberVO" id="MemberVOREsultMap">
+		<result property="user_id" column="user_id"/>
+		<result property="user_password" column="user_password"/>
+	</resultMap>
+	
 	<select id="getMembers" resultType = "member">
 		SELECT * FROM member1
 	</select>
@@ -19,6 +24,11 @@
 	<select id = "getUpdateMember" resultType = "member"
 	parameterType="int">
 		SELECT * FROM member1 WHERE id = #{id}
+	</select>
+	
+	<select id = "getLoginMember" resultType = "int"
+	parameterType="MemberVO">
+		SELECT COUNT(*) FROM CafeUser WHERE user_id = #{user_id} AND user_password = #{user_password}
 	</select>
 	
 	<insert id="insertMember" parameterType="member">
@@ -33,4 +43,5 @@
 	<delete id="deleteMember" parameterType = "int">
 		DELETE member1 WHERE id = #{id}
 	</delete>
+	
 </mapper>
