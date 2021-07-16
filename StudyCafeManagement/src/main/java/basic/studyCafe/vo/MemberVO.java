@@ -3,6 +3,7 @@ package basic.studyCafe.vo;
 public class MemberVO {
 	private String user_id;
 	private String user_password;
+	private String user_checkpw;
 	private String user_name;
 	private String user_gender;
 	private String user_phone;
@@ -33,6 +34,16 @@ public class MemberVO {
 		this.user_password = user_password;
 	}
 
+
+	public String getUser_checkpw() {
+		return user_checkpw;
+	}
+
+
+
+	public void setUser_checkpw(String user_checkpw) {
+		this.user_checkpw = user_checkpw;
+	}
 
 
 	public String getUser_name() {

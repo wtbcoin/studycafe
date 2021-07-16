@@ -6,16 +6,13 @@
 <meta charset="UTF-8">
 <title>회원가입</title>
 <script>
-	function gotoJoin(){
-		location.href = "join";
-	}
 	function gotoFindId(){
 		location.href = "back";
 	}
 </script>
 </head>
 <body>
-	<form method="POST">
+	<form action ="join" method="POST">
 		<!-- 아이디 -->
 		<div class="form-group">
 			<label for="user_id">아이디</label> <input type="text"
@@ -25,17 +22,17 @@
 		</div>
 		<!-- 비밀번호 -->
 		<div class="form-group">
-			<label for="user_pw">비밀번호</label> <input type="password"
-				class="form-control" id="user_pw" name="user_pw"
+			<label for="user_password">비밀번호</label> <input type="password"
+				class="form-control" id="user_password" name="user_password"
 				placeholder="PASSWORD" required>
-			<div class="check_font" id="pw_check"></div>
+			<div class="check_font" id="password_check"></div>
 		</div>
 		<!-- 비밀번호 재확인 -->
 		<div class="form-group">
-			<label for="user_checkpw">비밀번호 확인</label>
-			<inpt type="password" class="form-control" id="user_checkpw"
-				name="user_checkpw" placeholder="Confirm Password" required>
-			<div class="check_font" id="user_checkpw"></div>
+			<label for="user_checkpw">비밀번호 확인</label> <input type="password"
+				class="form-control" id="user_checkpw" name="user_checkpw"
+				placeholder="Confirm Password" required>
+			<div class="check_font" id="checkpw_check"></div>
 		</div>
 		<!-- 이름 -->
 		<div class="form-group">
@@ -44,18 +41,12 @@
 				placeholder="Name" required>
 			<div class="check_font" id="name_check"></div>
 		</div>
-		<!-- 생년월일 -->
-		<div class="form-group required">
-			<label for="user_birth">생년월일</label> <input type="text"
-				class="form-control" id="user_birth" name="user_birth"
-				placeholder="ex) 19980203" required>
-			<div class="check_font" id="birth_check"></div>
-		</div>
+		<!-- 성별 -->
 		<div class="form-group">
-			<label for="user_email">이메일</label> <input type="text"
-				class="form-control" name="user_email" id="user_email"
-				placeholder="E-mail" required>
-			<div class="check_font" id="email_check"></div>
+			<label for="user_gender">성별</label> <input type="text"
+				class="form-control" id="user_gender" name="user_gender"
+				placeholder="gender" required>
+			<div class="check_font" id="gender_check"></div>
 		</div>
 		<!-- 휴대전화 -->
 		<div class="form-group">
@@ -64,8 +55,32 @@
 				placeholder="Phone Number" required>
 			<div class="check_font" id="phone_check"></div>
 		</div>
-		<button onclick="gotoBack()">취소하기</button>
-		<button onclick="gotoJoin()">가입하기</button>
+		<!-- 주소 -->
+		<div class="form-group">
+			<label for="user_phone">주소</label> <input type="text"
+				class="form-control" id="user_address" name="user_address"
+				placeholder="address" required>
+			<div class="check_font" id="address_check"></div>
+		</div>
+		<!-- 이메일 -->
+		<div class="form-group">
+			<label for="user_email">이메일</label> <input type="text"
+				class="form-control" name="user_email" id="user_email"
+				placeholder="E-mail" required>
+			<div class="check_font" id="email_check"></div>
+		</div>
+		<!-- 생년월일 -->
+		<div class="form-group required">
+			<label for="user_birth">생년월일</label> <input type="text"
+				class="form-control" id="user_birth" name="user_birth"
+				placeholder="ex) 19980203" required>
+			<div class="check_font" id="birth_check"></div>
+		</div>
+		
+		<input type = "submit" value = "가입"/>
+
 	</form>
+	
+		<button onclick="gotoBack()">취소하기</button>
 </body>
 </html>

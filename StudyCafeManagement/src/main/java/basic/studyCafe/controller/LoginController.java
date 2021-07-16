@@ -54,14 +54,23 @@ public class LoginController {
 	}
 	
 	@RequestMapping(value = "/join", method = RequestMethod.POST)
-	public String Join(/*@RequestParam("user_id") String user_id,
-			@RequestParam("user_pw") String user_pw, @RequestParam("user_checkpw") String user_checkpw,
-			@RequestParam("user_name") String user_name,
-			@RequestParam("user_birth") String user_birth, @RequestParam("user_email") String user_email, 
-			@RequestParam("user_phone") String user_phone*/MemberVO member) {
+	public String Join(MemberVO member) {
 		memberService.joinMember(member);
 		return "main";
 		
+		/*
+		 * @RequestParam("user_id") String user_id,
+		 * 
+		 * @RequestParam("user_pw") String user_pw, @RequestParam("user_checkpw") String
+		 * user_checkpw,
+		 * 
+		 * @RequestParam("user_name") String user_name,
+		 * 
+		 * @RequestParam("user_birth") String user_birth, @RequestParam("user_email")
+		 * String user_email,
+		 * 
+		 * @RequestParam("user_phone") String user_phone
+		 */
 	
 /*		@RequestMapping(value = "/insert", method = RequestMethod.POST)
 		public String addMember(Member member) {

@@ -35,6 +35,10 @@
 		INSERT INTO member1 VALUES(member1_seq.nextval, #{name}, #{email}, #{phone})
 	</insert>
 	
+	<insert id="insertMemberVO" parameterType="memberVO">
+		INSERT INTO CafeUser VALUES(#{user_id}, #{user_password}, #{user_checkpw}, #{user_name}, #{user_gender}, #{user_phone}, #{user_address}, #{user_email}, #{user_birth})
+	</insert>
+	
 	<update id="updateMember" parameterType="member">
 		UPDATE member1 SET name = #{name}, email = #{email}, phone = #{phone}
 		WHERE id = #{id}
