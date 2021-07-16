@@ -37,11 +37,18 @@ public class LoginController {
 		int result = memberServiceImpl.checkMember(member);
 		
 		if(result == 1) {
-			path = "index";
+			path = "main";
 		} else {
 			path = "seat/list";
 		}
 		
 		return path;
 	}
+	
+	@RequestMapping(value = "/JoinForm", method = RequestMethod.GET)
+	public String JoinForm() {
+		return "common/JoinForm";
+	}
+	
+	
 }
