@@ -22,6 +22,7 @@ button {
 </head>
 <body>
 	<h1>좌석 예약</h1>
+	<h2>test</h2>
 
 <div id = "btnDiv">
 	<script language="javaScript">
