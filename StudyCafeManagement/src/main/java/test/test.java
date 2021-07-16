@@ -20,6 +20,7 @@ public static void main(String[] args) {
 	System.out.println("呪舛15");
 		int a = 1;
 		double b = 2.0;
+		int sdad = 2;//しいけしいけ
 		float c = 3.2f; 
 		int dsfsd2 = 3;
 }
