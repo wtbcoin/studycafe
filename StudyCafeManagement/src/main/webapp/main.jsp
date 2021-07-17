@@ -42,7 +42,7 @@
 }
 	#loginFormArea{
 		width : 500px;
-		height : 1000px;
+		height : 500px;
 		margin : 10px;
 		text-align : center;
 	}
