@@ -15,8 +15,8 @@ public class MemberDAOImpl implements MemberDAO {
 
 	@Autowired
 	private SqlSession sqlSession;
-	//SqlSessionTemplate이 SqlSession을 구현함
-	
+	// SqlSessionTemplate이 SqlSession을 구현함
+
 	@Override
 	public ArrayList<Member> getMembers() {
 		// TODO Auto-generated method stub
@@ -53,27 +53,47 @@ public class MemberDAOImpl implements MemberDAO {
 		Member member = memberMapper.getUpdateMember(id);
 		return member;
 	}
-	
+
 	@Override
 	public int getLoginMember(MemberVO member) {
 		// TODO Auto-generated method stub
 		return sqlSession.selectOne("basic.studyCafe.mybatis.MemberMapper.getLoginMember", member);
 	}
-	
+
 	@Override
 	public void insertMemberVO(MemberVO member) {
 		// TODO Auto-generated method stub
-		MemberMapper memberMapper =
-		sqlSession.getMapper(MemberMapper.class);
+		MemberMapper memberMapper = sqlSession.getMapper(MemberMapper.class);
 		memberMapper.insertMemberVO(member);
-		
+
 	}
-	
-	/*
-	 * @Override public void insertMember(Member member) { // TODO Auto-generated
-	 * method stub MemberMapper memberMapper =
-	 * sqlSession.getMapper(MemberMapper.class); memberMapper.insertMember(member);
-	 * }
-	 */
+
+	@Override
+	public int getMemberId(MemberVO member) {
+		// TODO Auto-generated method stub
+		return sqlSession.selectOne("basic.studyCafe.mybatis.MemberMapper.getMemberId", member);
+	}
+
+	@Override
+	public MemberVO getFindIdMember(MemberVO member) {
+		// TODO Auto-generated method stub
+		MemberMapper memberMapper = sqlSession.getMapper(MemberMapper.class);
+		MemberVO findMember = memberMapper.getFindIdMember(member);
+		return findMember;
+	}
+
+	@Override
+	public int getMemberPassword(MemberVO member) {
+		// TODO Auto-generated method stub
+		return sqlSession.selectOne("basic.studyCafe.mybatis.MemberMapper.getMemberPassword", member);
+	}
+
+	@Override
+	public MemberVO getFindPasswordMember(MemberVO member) {
+		// TODO Auto-generated method stub
+		MemberMapper memberMapper = sqlSession.getMapper(MemberMapper.class);
+		MemberVO findMember = memberMapper.getFindPasswordMember(member);
+		return findMember;
+	}
 
 }

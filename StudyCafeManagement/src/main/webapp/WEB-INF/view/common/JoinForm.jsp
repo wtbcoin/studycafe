@@ -6,7 +6,7 @@
 <meta charset="UTF-8">
 <title>회원가입</title>
 <script>
-	function gotoFindId(){
+	function gotoBack(){
 		location.href = "back";
 	}
 </script>

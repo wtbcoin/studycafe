@@ -15,4 +15,9 @@ public interface MemberService {
 	public void modifyMember(Member member);
 	public int checkMember(MemberVO member);
 	public void joinMember(MemberVO member);
+	public int checkMemberId(MemberVO member);
+	public MemberVO getFindIdMember(MemberVO member);
+	public int checkMemberPassword(MemberVO member);
+	public MemberVO getFindPasswordMember(MemberVO member);
+
 }

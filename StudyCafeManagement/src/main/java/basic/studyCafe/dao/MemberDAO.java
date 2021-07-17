@@ -12,4 +12,9 @@ public interface MemberDAO {
 	public Member selectUpdateMember(int id);
 	public int getLoginMember(MemberVO member);
 	public void insertMemberVO(MemberVO member);
+	public int getMemberId(MemberVO member);
+	public MemberVO getFindIdMember(MemberVO member);
+	public int getMemberPassword(MemberVO member);
+	public MemberVO getFindPasswordMember(MemberVO member);
+
 }

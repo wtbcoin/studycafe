@@ -31,6 +31,26 @@
 		SELECT COUNT(*) FROM CafeUser WHERE user_id = #{user_id} AND user_password = #{user_password}
 	</select>
 	
+	<select id = "getMemberId" resultType = "int"
+	parameterType="MemberVO">
+		SELECT COUNT(*) FROM CafeUser WHERE user_name = #{user_name} AND user_phone = #{user_phone}
+	</select>
+
+	<select id = "getFindIdMember" resultType = "MemberVO"
+	parameterType="MemberVO">
+		SELECT * FROM CafeUser WHERE user_name = #{user_name} AND user_phone = #{user_phone}
+	</select>
+	
+	<select id = "getMemberPassword" resultType = "int"
+	parameterType="MemberVO">
+		SELECT COUNT(*) FROM CafeUser WHERE user_name = #{user_name} AND user_id = #{user_id}
+	</select>
+
+	<select id = "getFindPasswordMember" resultType = "MemberVO"
+	parameterType="MemberVO">
+		SELECT * FROM CafeUser WHERE user_name = #{user_name} AND user_id = #{user_id}
+	</select>
+	
 	<insert id="insertMember" parameterType="member">
 		INSERT INTO member1 VALUES(member1_seq.nextval, #{name}, #{email}, #{phone})
 	</insert>
