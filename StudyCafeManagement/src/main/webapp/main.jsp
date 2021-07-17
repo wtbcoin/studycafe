@@ -15,6 +15,9 @@
       margin : auto;
    }
    h1{
+		border: 1px solid blue;
+		background-color: blue;
+		color: blue;
       text-align : center;
    }
    .productImage{
@@ -32,6 +35,13 @@
 </head>
 <body>
     <form action="insert" method = "POST">
+	<h1>
+	<a href = "" style="color: white">좌석</a>
+	<a href = "" style="color: white">상품</a>
+	<a href = "" style="color: white">커뮤니티</a>
+	<a href = "" style="color: white">공지사항</a>
+	<a href = "" style="color: white">메시지</a>
+	</h1>
 	
 	</form>
 </body>
