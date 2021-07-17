@@ -16,7 +16,7 @@ CREATE TABLE CafeUser(
 	user_password varchar2(20) not null
 );
 
-drop table CafeUser purge;
+drop table CafeUser;
 
 insert into CafeUser values('afsdf222','1232421');
 commit
