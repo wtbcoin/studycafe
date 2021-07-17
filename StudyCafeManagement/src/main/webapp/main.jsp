@@ -7,6 +7,45 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <style>
+	.idInput{
+		font-size: 30px;
+		line-height: 35px;
+		position: relative;
+		width: 100%;
+		height: 35px;
+		padding: 16px 0px 12px;
+		color: #000;
+		border:1x solid #6E6E6E;
+		background: #fff;
+		-webkit-appearance: none;
+	}
+	.passwdInput{
+		font-size: 30px;
+		line-height: 35px;
+		position: relative;
+		top: 10px;
+		width: 100%;
+		height: 35px;
+		padding: 16px 0px 12px;
+		color: #000;
+		border:1x solid #6E6E6E;
+		background: #fff;
+		-webkit-appearance: none;
+	}
+	.LoginButton {
+	width: 100%;
+    height: 54px;
+    line-height: 52px;
+    font-size: 18px;
+    font-weight: 700;
+    margin: 20px 0 0 0;
+}
+	#loginFormArea{
+		width : 500px;
+		height : 1000px;
+		margin : 10px;
+		text-align : center;
+	}
    header {
          background-color:blueviolet;
          height:150px;
@@ -205,6 +244,22 @@
        
        <div class="temp-box">로그인
        <hr>
+       <section id = "loginFormArea">
+		<form action="login" method = "POST">
+		<fieldset>
+			<label for = "id"></label>
+			<input type="text" id="id" name="id" class="idInput" placeholder="아이디" maxlength="41" value=""><br>
+			<label for = "passwd"></label>
+			<input type = "password" id = "passwd" name = "passwd" class="passwdInput" placeholder="비밀번호" maxlength="41" value=""/><br>
+			<input type = submit class="LoginButton" value = "로그인"/><br>
+			<a href="">아이디 찾기</a>
+			<span class="bar" aria-hidden="true">|</span>
+			<a href="">비밀번호 찾기</a>
+			<span class="bar" aria-hidden="true">|</span>
+			<a href="">회원가입</a>
+		</fieldset>
+		</form>
+		</section>
        </div>
        
        <div class="temp-box">공지사항
