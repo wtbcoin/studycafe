@@ -36,13 +36,13 @@
       
    .section-container {
      width: 2000px;
-     height: 1000px;
+     height: 1500px;
      margin: auto;
      display: grid;
      align-items: stretch;
      grid-template-columns: 1fr 1fr 1fr 1fr;
      grid-template-rows: 1fr 1fr;
-     gap: 10px; /* 자식요소간의 간격 */ 
+     gap: 20px; /* 자식요소간의 간격 */ 
    }
    
    .temp-box {
@@ -80,6 +80,12 @@
    }
    
    
+    table{
+      width: 800px;
+     height: 700px;
+     margin: auto;
+   }
+   
    header,section {text-aligen:center;}
    
    
@@ -112,7 +118,26 @@
    <section>
      <div class="section-container">
        <div class="temp-box">커뮤니티
- 
+		<input type = "button" value = "글쓰기" onclick="fn_insert_form()"  style="float: right; margin:5px;">	
+		<hr>
+		<table border = "1">
+			<tr>
+				<th>번호</th>
+				<th>제목</th>
+				<th>등록자</th>
+				<th>작성일</th>
+			</tr>
+			<c:forEach var = "board" items = "${boardList }">
+				<tr>
+				<td>${board.seq }</td>
+				<td><a href = "board_detail.do?seq=${board.seq }">${board.title}</a></td>
+				<td>${board.writer}</td>
+				<td>${board.regdate}</td>
+				</tr>
+			</c:forEach>
+	</table>
+
+ 		
        </div>
        <div class="temp-box">좌석</div>
        <div class="temp-box">로그인</div>
