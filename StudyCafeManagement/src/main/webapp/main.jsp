@@ -31,18 +31,18 @@
    }
   	
   	div.cafe_menus{
-  		font-size:80px;
+  		font-size: 80px;
 		font-weight: bold;
   	}
   	
 	div{
 		font-size:35px;
-		font-weight: bold;
+		font-weight:normal;
 	}
-      
-   .section-container {
-     width: 2000px;
-     height: 1500px;
+    
+ 	.section-container {
+     width: 1500px;
+     height: 1200px;
      margin: auto;
      display: grid;
      align-items: stretch;
@@ -52,10 +52,10 @@
    }
    
    .temp-box {
-     /* background: yellow; */
      width: 100%;
      height: 100%;
      font-size: 30px;
+     font-weight: bold;
      border: 1px solid #dee3eb;
      text-align: center;
    }
@@ -85,40 +85,66 @@
      grid-row: 2/3;
    }
    
-	 table.type01 {
+   
+    table.type02 {
+      border-collapse: collapse;
+	  text-align: center;
+	  font-size :20px;
+	  line-height: 1.5;
+	  margin: 20px 10px;
+    }  
+    
+    table.type02 tr {
+	  width: 300px;
+	  height: 40px;
+	  font-size: 25px;
+	  padding: 10px;
+	  margin: auto;
+	  vertical-align: top; 
+
+	}
+	
+	table.type02 td {
+	  width: 500px;
+	  padding: 10px;
+	  font-weight:normal;
+	  vertical-align: top;
+	  
+	}
+	
+	
+	table.type01 {
 	  border-collapse: collapse;
 	  text-align: left;
-	  font-size :30px;
+	  font-size :20px;
 	  line-height: 1.5;
-	  border-top: 1px solid #ccc;
+	  border: 1px solid #ccc;
 	  border-bottom: 1px solid #ccc;
+	  border-right: 1px solid #ccc;
 	  margin: 20px 10px;
 	}
 	table.type01 th {
-	  width: 350px;
+	  width: 200px;
 	  padding: 10px;
 	  vertical-align: top; 
   	  border-right: 1px solid #ccc;
 	}
 	table.type01 td {
 	  width: 700px;
-	  height: 50px;
+	  height: 30px;
 	  padding: 10px;
+	  font-weight:normal;
+	  border-right: 1px solid #ccc;
 	  vertical-align: top;
+	  
 	}
 	table.type01 .even {
 	  background: #efefef;
 	}
-
-
-	table.type02 {
-	  border-collapse: separate;
-	  text-align: center;
-	  font-size : 30px;
-	  line-height: 1.5;
-	  margin: 20px 10px;
+	
+	tbody{
+	padding:50px;
 	}
-   
    header,section {text-aligen:center;}
    
    
@@ -129,7 +155,7 @@
 <body>
     <header>
         <div class="nav_container">
-         <h7 style ="color:white; margin:3px; font-size:40px;">베이직 스터디 카페</h7>
+         <h7 style ="color:white; margin:3px; font-size:40px; font-weight:bold;">베이직 스터디 카페</h7>
         <div class="cafe_menus">
                     <img src="" class="logo_image" width="40" height="40" >
                     <a href="/" class="Seat" >좌석</a>
@@ -144,7 +170,7 @@
    <section>
      <div class="section-container">
        <div class="temp-box" >커뮤니티
-		<input type = "button" value = "글쓰기" onclick="fn_insert_form()"  style="float: right; margin:5px; font-size:25px;">
+		<input type = "button" value = "글쓰기" onclick="fn_insert_form()"  style="float: right; margin:5px; font-size:15px;">
 		<hr>
 		
 		
@@ -155,58 +181,33 @@
 		
 		<table class="type01">
 		  <tr>
-		    <th scope="row">제목명</th>
-		    <td>내용이 들어갑니다.</td>
+		    <th scope="row">글번호</th>
+		    <td>제목이 들어갑니다.</td>
+		    <td>날자가 들어갑니다.</td> <!-- 뒤에가 넘치면 밑으로 내려감.  -->
 		  </tr>
 		  <tr>
-		    <th scope="row" class="even">제목명</th>
-		    <td class="even">내용이 들어갑니다.</td>
-		  </tr>
-		  <tr>
-		    <th scope="row">제목명</th>
-		    <td>내용이 들어갑니다.</td>
-		  </tr>
-		  <tr>
-		    <th scope="row" class="even">제목명</th>
-		    <td class="even">내용이 들어갑니다.</td>
-		  </tr>
-		   <tr>
-		    <th scope="row">제목명</th>
-		    <td>내용이 들어갑니다.</td>
-		  </tr>
-		  <tr>
-		    <th scope="row" class="even">제목명</th>
-		    <td class="even">내용이 들어갑니다.</td>
+		    <th scope="row" class="even">글번호</th>
+		    <td class="even">제목이 들어갑니다.</td>
+		    <td class="even">날자가 들어갑니다.</td>
 		  </tr>
 		</table>
 		
-		
-		<%-- <table border = "1">
-			<tr>
-				<th>번호</th>
-				<th>제목</th>
-				<th>등록자</th>
-				<th>작성일</th>
-			</tr>
-			<c:forEach var = "board" items = "${boardList }">
-				<tr>
-					<td>${board.seq }</td>
-					<td><a href = "board_detail.do?seq=${board.seq }">${board.title}</a></td>
-					<td>${board.writer}</td>
-					<td>${board.regdate}</td>
-				</tr>
-			</c:forEach>
-	</table> --%>
 
  		
        </div>
        
-       <div class="temp-box">좌석</div>
+       <div class="temp-box">좌석
+       <hr>
+       <img src="" class="Seat_image" width=230px height=230px style="margin:50px;">
+       <input type = "button" value = "예약" onclick="fn_res_form()"  style="float: center; margin:50px; font-size:50px;">
        
-       <div class="temp-box">로그인</div>
+       </div>
+       
+       <div class="temp-box">로그인
+       <hr>
+       </div>
        
        <div class="temp-box">공지사항
-       <input type = "button" value = "글쓰기" onclick="fn_insert_form()"  style="float: right; margin:5px; font-size:25px;">	
 		<hr>
 		
 		
@@ -217,37 +218,52 @@
 		
 		<table class="type01">
 		  <tr>
-		    <th scope="row">제목명</th>
-		    <td>내용이 들어갑니다.</td>
+		    <th scope="row">글번호</th>
+		    <td>제목이 들어갑니다.</td>
+		    <td>날자가 들어갑니다.</td> <!-- 뒤에가 넘치면 밑으로 내려감.  -->
 		  </tr>
 		  <tr>
-		    <th scope="row" class="even">제목명</th>
-		    <td class="even">내용이 들어갑니다.</td>
-		  </tr>
-		  <tr>
-		    <th scope="row">제목명</th>
-		    <td>내용이 들어갑니다.</td>
-		  </tr>
-		  <tr>
-		    <th scope="row" class="even">제목명</th>
-		    <td class="even">내용이 들어갑니다.</td>
-		  </tr>
-		   <tr>
-		    <th scope="row">제목명</th>
-		    <td>내용이 들어갑니다.</td>
-		  </tr>
-		  <tr>
-		    <th scope="row" class="even">제목명</th>
-		    <td class="even">내용이 들어갑니다.</td>
+		    <th scope="row" class="even">글번호</th>
+		    <td class="even">제목이 들어갑니다.</td>
+		    <td class="even">날자가 들어갑니다.</td>
 		  </tr>
 		</table>
 		
        </div>
        
        <div class="temp-box">상품 - BEST
-       <table class="type02">
+       <hr>
        
-       </table>
+       	<table class = "type02">
+		  <tr style = "border-bottom: 1px solid #ccc; border-top: 1px solid #ccc; border-color: black;">
+		    <div>
+			<td> <img src="" class="logo_image" width="150" height="200"> </td>
+			<td> <img src="" class="logo_image" width="150" height="200"> </td>
+			<td> <img src="" class="logo_image" width="150" height="200"> </td>
+			<td> <img src="" class="logo_image" width="150" height="200"> </td>       
+           </div>		  
+          </tr>
+		  <tr>
+ 			<td style = "font-weight: bold;">BEST1</td>
+ 			<td style = "font-weight: bold;">BEST2</td>
+ 			<td style = "font-weight: bold;">BEST3</td>
+ 			<td style = "font-weight: bold;">BEST4</td>
+		  </tr>
+		  <tr>
+ 			<td>이름1</td>
+ 			<td>이름2</td>
+ 			<td>이름3</td>
+ 			<td>이름4</td>
+		  </tr>
+		  <tr>
+ 			<td>가격1</td>
+ 			<td>가격2</td>
+ 			<td>가격3</td>
+ 			<td>가격4</td>
+		  </tr>
+		</table>
+		
+
        </div>
        
      </div>
