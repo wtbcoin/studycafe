@@ -1,27 +1,23 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
+
 <html>
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <style>
    header {
-         background-color:blue;
-         height:100px;
+         background-color:blueviolet;
+         height:150px;
          padding:5px;
-         margin:auto;
+         margin:5px;
          text-align: center;
-   }
-   
-   h1{
-      font-size :20px;
-      color:white;
-      
    }
    
    header a{
       font-size :30px;
+      font-weight: bold;
       color:white;
       padding:25px;
       margin:auto;
@@ -31,8 +27,18 @@
    section{
       width:100%;
       float:left;/*띄우다 문서나 사진이 있을때 그림을 오른쪽 정렬이나 문서 배치 할때 사용  */
-      padding:10px;
+      padding:5px;
    }
+  	
+  	div.cafe_menus{
+  		font-size:80px;
+		font-weight: bold;
+  	}
+  	
+	div{
+		font-size:35px;
+		font-weight: bold;
+	}
       
    .section-container {
      width: 2000px;
@@ -49,7 +55,7 @@
      /* background: yellow; */
      width: 100%;
      height: 100%;
-     font-size: 20px;
+     font-size: 30px;
      border: 1px solid #dee3eb;
      text-align: center;
    }
@@ -79,21 +85,41 @@
      grid-row: 2/3;
    }
    
-   
-    table{
-      width: 800px;
-     height: 700px;
-     margin: auto;
-   }
+	 table.type01 {
+	  border-collapse: collapse;
+	  text-align: left;
+	  font-size :30px;
+	  line-height: 1.5;
+	  border-top: 1px solid #ccc;
+	  border-bottom: 1px solid #ccc;
+	  margin: 20px 10px;
+	}
+	table.type01 th {
+	  width: 350px;
+	  padding: 10px;
+	  vertical-align: top; 
+  	  border-right: 1px solid #ccc;
+	}
+	table.type01 td {
+	  width: 700px;
+	  height: 50px;
+	  padding: 10px;
+	  vertical-align: top;
+	}
+	table.type01 .even {
+	  background: #efefef;
+	}
+
+
+	table.type02 {
+	  border-collapse: separate;
+	  text-align: center;
+	  font-size : 30px;
+	  line-height: 1.5;
+	  margin: 20px 10px;
+	}
    
    header,section {text-aligen:center;}
-   
-   
-   
-   table{
-      width : 600px;
-      margin : auto;
-   }
    
    
    
@@ -103,9 +129,9 @@
 <body>
     <header>
         <div class="nav_container">
-         <h1>베이직 스터디 카페</h1>
+         <h7 style ="color:white; margin:3px; font-size:40px;">베이직 스터디 카페</h7>
         <div class="cafe_menus">
-                    <img src="cafe_logo.jpg" class="logo_image" width="40" height="40" >
+                    <img src="" class="logo_image" width="40" height="40" >
                     <a href="/" class="Seat" >좌석</a>
                     <a href="/" class="Product" >상품</a>
                     <a href="/" class="Community" >커뮤니티</a>
@@ -117,10 +143,45 @@
     </header>
    <section>
      <div class="section-container">
-       <div class="temp-box">커뮤니티
-		<input type = "button" value = "글쓰기" onclick="fn_insert_form()"  style="float: right; margin:5px;">	
+       <div class="temp-box" >커뮤니티
+		<input type = "button" value = "글쓰기" onclick="fn_insert_form()"  style="float: right; margin:5px; font-size:25px;">
 		<hr>
-		<table border = "1">
+		
+		
+	<%-- 	<%
+			if (count == 0) {
+		%> --%>
+		
+		
+		<table class="type01">
+		  <tr>
+		    <th scope="row">제목명</th>
+		    <td>내용이 들어갑니다.</td>
+		  </tr>
+		  <tr>
+		    <th scope="row" class="even">제목명</th>
+		    <td class="even">내용이 들어갑니다.</td>
+		  </tr>
+		  <tr>
+		    <th scope="row">제목명</th>
+		    <td>내용이 들어갑니다.</td>
+		  </tr>
+		  <tr>
+		    <th scope="row" class="even">제목명</th>
+		    <td class="even">내용이 들어갑니다.</td>
+		  </tr>
+		   <tr>
+		    <th scope="row">제목명</th>
+		    <td>내용이 들어갑니다.</td>
+		  </tr>
+		  <tr>
+		    <th scope="row" class="even">제목명</th>
+		    <td class="even">내용이 들어갑니다.</td>
+		  </tr>
+		</table>
+		
+		
+		<%-- <table border = "1">
 			<tr>
 				<th>번호</th>
 				<th>제목</th>
@@ -129,20 +190,66 @@
 			</tr>
 			<c:forEach var = "board" items = "${boardList }">
 				<tr>
-				<td>${board.seq }</td>
-				<td><a href = "board_detail.do?seq=${board.seq }">${board.title}</a></td>
-				<td>${board.writer}</td>
-				<td>${board.regdate}</td>
+					<td>${board.seq }</td>
+					<td><a href = "board_detail.do?seq=${board.seq }">${board.title}</a></td>
+					<td>${board.writer}</td>
+					<td>${board.regdate}</td>
 				</tr>
 			</c:forEach>
-	</table>
+	</table> --%>
 
  		
        </div>
+       
        <div class="temp-box">좌석</div>
+       
        <div class="temp-box">로그인</div>
-       <div class="temp-box">공지사항</div>
-       <div class="temp-box">상품 - BEST</div>
+       
+       <div class="temp-box">공지사항
+       <input type = "button" value = "글쓰기" onclick="fn_insert_form()"  style="float: right; margin:5px; font-size:25px;">	
+		<hr>
+		
+		
+	<%-- 	<%
+			if (count == 0) {
+		%> --%>
+		
+		
+		<table class="type01">
+		  <tr>
+		    <th scope="row">제목명</th>
+		    <td>내용이 들어갑니다.</td>
+		  </tr>
+		  <tr>
+		    <th scope="row" class="even">제목명</th>
+		    <td class="even">내용이 들어갑니다.</td>
+		  </tr>
+		  <tr>
+		    <th scope="row">제목명</th>
+		    <td>내용이 들어갑니다.</td>
+		  </tr>
+		  <tr>
+		    <th scope="row" class="even">제목명</th>
+		    <td class="even">내용이 들어갑니다.</td>
+		  </tr>
+		   <tr>
+		    <th scope="row">제목명</th>
+		    <td>내용이 들어갑니다.</td>
+		  </tr>
+		  <tr>
+		    <th scope="row" class="even">제목명</th>
+		    <td class="even">내용이 들어갑니다.</td>
+		  </tr>
+		</table>
+		
+       </div>
+       
+       <div class="temp-box">상품 - BEST
+       <table class="type02">
+       
+       </table>
+       </div>
+       
      </div>
    </section>
 
