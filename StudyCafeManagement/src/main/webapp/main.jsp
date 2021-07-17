@@ -99,7 +99,7 @@
         <div class="nav_container">
 			<h1>베이직 스터디 카페</h1>
         <div class="cafe_menus">
-                    <img src="images/cafe_logo.jpg" class="logo_image" width="40" height="40" >
+                    <img src="cafe_logo.jpg" class="logo_image" width="40" height="40" >
                     <a href="/" class="Seat" >좌석</a>
                     <a href="/" class="Product" >상품</a>
                     <a href="/" class="Community" >커뮤니티</a>
