@@ -33,10 +33,10 @@ input {
 		location.href = "JoinForm";
 	}
 	function gotoFindId() {
-		location.href = "findId";
+		location.href = "findIdForm";
 	}
 	function gotoFindPassword() {
-		location.href = "findPassword";
+		location.href = "findPasswordForm";
 	}
 </script>
 </head>
@@ -56,8 +56,6 @@ input {
 		<button onclick="gotoJoinForm()">회원가입</button>
 		<button onclick="gotoFindId()">아이디 찾기</button>
 		<button onclick="gotoFindPassword()">비밀번호 찾기</button>
-
-		</form>
 	</div>
 
 </body>

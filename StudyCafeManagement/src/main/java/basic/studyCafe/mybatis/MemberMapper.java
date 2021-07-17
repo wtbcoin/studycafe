@@ -13,4 +13,9 @@ public interface MemberMapper {
 	void deleteMember(int id);
 	Member getUpdateMember(int id);
 	void insertMemberVO(MemberVO member);
+	int getMemberId(MemberVO member);
+	MemberVO getFindIdMember(MemberVO member);
+	int getMemberPassword(MemberVO member);
+	MemberVO getFindPasswordMember(MemberVO member);
+	
 }

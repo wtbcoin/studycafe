@@ -11,10 +11,9 @@ import basic.studyCafe.vo.MemberVO;
 
 @Service
 public class MemberServiceImpl implements MemberService {
-    @Autowired
-    private MemberDAO memberDAO;
-    
-	
+	@Autowired
+	private MemberDAO memberDAO;
+
 	@Override
 	public ArrayList<Member> getMembers() {
 		// TODO Auto-generated method stub
@@ -52,12 +51,36 @@ public class MemberServiceImpl implements MemberService {
 		// TODO Auto-generated method stub
 		return memberDAO.getLoginMember(member);
 	}
-	
+
 	@Override
 	public void joinMember(MemberVO member) {
 		// TODO Auto-generated method stub
 		memberDAO.insertMemberVO(member);
-		
+
+	}
+
+	@Override
+	public int checkMemberId(MemberVO member) {
+		// TODO Auto-generated method stub
+		return memberDAO.getMemberId(member);
+	}
+
+	@Override
+	public MemberVO getFindIdMember(MemberVO member) {
+		// TODO Auto-generated method stub
+		return memberDAO.getFindIdMember(member);
+	}
+
+	@Override
+	public int checkMemberPassword(MemberVO member) {
+		// TODO Auto-generated method stub
+		return memberDAO.getMemberPassword(member);
+	}
+
+	@Override
+	public MemberVO getFindPasswordMember(MemberVO member) {
+		// TODO Auto-generated method stub
+		return memberDAO.getFindPasswordMember(member);
 	}
 
 }
