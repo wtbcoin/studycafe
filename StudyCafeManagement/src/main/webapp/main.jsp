@@ -20,7 +20,7 @@
       
    }
    
-   a{
+   header a{
       font-size :30px;
       color:white;
       padding:25px;
@@ -35,7 +35,7 @@
    }
       
    .section-container {
-     width: 1500px;
+     width: 2000px;
      height: 1000px;
      margin: auto;
      display: grid;
@@ -111,7 +111,9 @@
     </header>
    <section>
      <div class="section-container">
-       <div class="temp-box">커뮤니티</div>
+       <div class="temp-box">커뮤니티
+ 
+       </div>
        <div class="temp-box">좌석</div>
        <div class="temp-box">로그인</div>
        <div class="temp-box">공지사항</div>
