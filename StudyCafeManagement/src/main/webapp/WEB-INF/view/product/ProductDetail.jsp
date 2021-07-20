@@ -31,16 +31,16 @@ body { margin:0; padding:0; font-family:'맑은 고딕', verdana; }
       text-decoration:none;
    }
    
-   aside#aside { margin: 100px; float:left; width:180px; }
+     aside#aside { margin-left: 60px; margin-top: 20px; float:left; width:180px; height:600px; }
    
-    section#container { }
-			section#content { float:right; width:700px; }
+    section#container {}
+			section#content { margin: 20px; float:center; width:700px; }
 			aside#aside { float:left; width:180px; }
 			section#container::after { content:""; display:block; clear:both; }	
 			
 	section h1{
 			 font-size :30px;
-	} 
+	}	
 				
    section#container { }
    
@@ -78,27 +78,12 @@ body { margin:0; padding:0; font-family:'맑은 고딕', verdana; }
     
    <section id = "container">
  
-	<section id = "content">
-		<aside id = "left_main">
-<%-- 			<img src = "images/<%=dogVO.getImage() %>" --%>
-			class = "productViewImage"/>
-		</aside>
-		<section id = "right_main">
-			<%-- <h1>개 이름: <%=dogVO.getKind() %></h1>
-			<h1>개 가격: <%=dogVO.getPrice() %></h1>
-			<h1>개 원산지: <%=dogVO.getCountry() %></h1>
-			<h1>개 설명: <%=dogVO.getContent() %></h1> --%>
-		</section>
-	</section>
-	
-	<div style = "clear: both;"></div>
-	
-	<aside id="aside">
+ 	<aside id="aside">
 				<h3>카테고리</h3>
 			<hr>
-				
+			<br>
 				<ul>
-					<br>
+					
 					<li><a href="/shop/list?c=100&l=1">과자</a>
 				
 						<ul class="low">
@@ -120,11 +105,27 @@ body { margin:0; padding:0; font-family:'맑은 고딕', verdana; }
 					<li><a href="/shop/list?c=400&l=1">기타</a></li>
 					
 				</ul>
-				<br>
-				<hr>
-				<br>
-			</aside>
-		</div>
+			<br>
+			<hr>
+			<br>
+	</aside>
+	
+	<section id = "content">
+		<aside id = "left_main">
+<%-- 			<img src = "images/<%=dogVO.getImage() %>" --%>
+			class = "productViewImage"/>
+		</aside>
+		<section id = "right_main">
+			<%-- <h1>개 이름: <%=dogVO.getKind() %></h1>
+			<h1>개 가격: <%=dogVO.getPrice() %></h1>
+			<h1>개 원산지: <%=dogVO.getCountry() %></h1>
+			<h1>개 설명: <%=dogVO.getContent() %></h1> --%>
+		</section>
+	</section>
+	
+	<div style = "clear: both;"></div>
+
+	</div>
 		
 </section>
 

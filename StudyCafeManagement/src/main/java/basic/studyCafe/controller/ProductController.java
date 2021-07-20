@@ -30,4 +30,13 @@ public class ProductController extends HttpServlet {
 	public String ProductList() {
 		return "product/ProductList";
 	}
+	
+	@RequestMapping(value = "/CartProductList", method = RequestMethod.GET)
+	public String CartProductList() {
+		return "product/CartProductList";
+	} 
+	@RequestMapping(value = "/ProductDetail", method = RequestMethod.GET)
+	public String ProductDetail() {
+		return "product/ProductDetail";
+	}
 }

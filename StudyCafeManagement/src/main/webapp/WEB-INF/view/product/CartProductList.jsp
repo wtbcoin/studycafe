@@ -31,10 +31,10 @@ body { margin:0; padding:0; font-family:'맑은 고딕', verdana; }
       text-decoration:none;
    }
    
-   aside#aside { margin: 100px; float:left; width:180px; }
+   aside#aside { margin-left: 20px; margin-top: 20px; float:left; width:180px; }
    
     section#container { }
-			section#content { float:right; width:700px; }
+			section#content { margin: 20px; float:right; width:700px; }
 			aside#aside { float:left; width:180px; }
 			section#container::after { content:""; display:block; clear:both; }	
 			
@@ -73,7 +73,32 @@ body { margin:0; padding:0; font-family:'맑은 고딕', verdana; }
 
         </div>
     </header>
-    
+ 	
+<aside id="aside">
+				<h3>장바구니</h3>
+				<hr>
+				<br>
+				<br>
+				<br>
+				<br>
+				<br>
+				<br>
+				<br>
+				<br>
+				<br>
+				<br>
+				<br>
+				<br>
+				<br>
+				<br>
+				<br>
+				<br>
+				<br>
+				<br>
+				<br>
+				<hr>
+				<br>
+</aside>	   
     
    <section id="container">
 		<div id="container_box">
@@ -127,63 +152,15 @@ body { margin:0; padding:0; font-family:'맑은 고딕', verdana; }
    if(todayImageList != null && todayImageList.size() > 0){
 %> --%>
 			
-			<aside id="aside">
-				<h3>장바구니</h3>
-				<hr>
-				<br>
-				<br>
-				<br>
-				<br>
-				<br>
-				<br>
-				<br>
-				<br>
-				<br>
-				<br>
-				<br>
-				<br>
-				<br>
-				<br>
-				<br>
-				<br>
-				<br>
-				<br>
-				<br>
-				<hr>
-				<br>
-			</aside>
 		</div>
 	</section>
+
     
-    
-<footer id = "content" >
-   <h3>오늘본 상품 정보</h3>
-   <table>
-      <tr>
-         <%-- <%
-            for(int i = 0;i < todayImageList.size();i++) {
-         %> --%>
-         
-         <c:forEach var = "todayImage" items = "${todayImageList }" varStatus = "status">
-         <td>
-            <img src="images/${todayImage }"
-            class = "todayImage"/>
-         </td>
-         <c:if test="${(status.index + 1) % 6 == 0}">
-         <%-- <%
-            if((i + 1) % 6 == 0){
-         %> --%>
-            </tr>
-            <tr>                           
-         <%-- <%
-            }
-         
-            }
-         %> --%>
-         </c:if>
-         </c:forEach>
-      </tr>
-      </table>
-</footer>
+<footer id = "content" style = "">
+		<a href="" style = "float:right" >쇼핑계속하기</a>
+<%-- 		<a href="dogCartAdd.dog?id=<%=dogVO.getId()%>" style = "float:right">장바구니담기</a>
+ --%>	
+ 	</footer>
+
 </body>
 </html>

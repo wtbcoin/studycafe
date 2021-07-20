@@ -31,16 +31,16 @@ body { margin:0; padding:0; font-family:'맑은 고딕', verdana; }
       text-decoration:none;
    }
    
-   aside#aside { margin: 100px; float:left; width:180px; }
+     aside#aside { margin-left: 60px; margin-top: 20px; float:left; width:180px; height:600px; }
    
-    section#container { }
-			section#content { float:right; width:700px; }
+    section#container {}
+			section#content { margin: 20px; float:center; width:700px; }
 			aside#aside { float:left; width:180px; }
 			section#container::after { content:""; display:block; clear:both; }	
-
+			
 	section h1{
 			 font-size :30px;
-	}
+	}	
 				
    section#container { }
    
@@ -79,6 +79,38 @@ body { margin:0; padding:0; font-family:'맑은 고딕', verdana; }
    <section id="container">
 		<div id="container_box">
 		
+		<aside id="aside">
+				<h3>카테고리</h3>
+			<hr>
+				
+				<ul>
+					<br>
+					<li><a href="/shop/list?c=100&l=1">과자</a>
+				
+						<ul class="low">
+							<li><a href="/shop/list?c=101&l=2">베스트과자</a></li>
+							<li><a href="/shop/list?c=102&l=2">달콤한과자</a></li>
+							<li><a href="/shop/list?c=103&l=2">그냥과자</a></li>
+						</ul>
+						
+					</li>
+					<li><a href="/shop/list?c=200&l=1">빵</a></li>
+					<li><a href="/shop/list?c=300&l=1">음료</a></li>
+						<ul class="low">
+								<li><a href="/shop/list?c=101&l=2">탄산음료</a></li>
+								<li><a href="/shop/list?c=102&l=2">주스</a></li>
+								<li><a href="/shop/list?c=103&l=2">음류수</a></li>
+							</ul>
+					<li><a href="/shop/list?c=400&l=1">커피</a></li>
+					<li><a href="/shop/list?c=400&l=1">티,스무디</a></li>
+					<li><a href="/shop/list?c=400&l=1">기타</a></li>
+					
+				</ul>
+				<br>
+				<hr>
+				<br>
+			</aside>
+			
 			<section id = "content">
    <%-- <%
       if(dogList == null || dogList.size() == 0) { 
@@ -128,69 +160,15 @@ body { margin:0; padding:0; font-family:'맑은 고딕', verdana; }
    if(todayImageList != null && todayImageList.size() > 0){
 %> --%>
 			
-			<aside id="aside">
-				<h3>카테고리</h3>
-			<hr>
-				
-				<ul>
-					<br>
-					<li><a href="/shop/list?c=100&l=1">과자</a>
-				
-						<ul class="low">
-							<li><a href="/shop/list?c=101&l=2">베스트과자</a></li>
-							<li><a href="/shop/list?c=102&l=2">달콤한과자</a></li>
-							<li><a href="/shop/list?c=103&l=2">그냥과자</a></li>
-						</ul>
-						
-					</li>
-					<li><a href="/shop/list?c=200&l=1">빵</a></li>
-					<li><a href="/shop/list?c=300&l=1">음료</a></li>
-						<ul class="low">
-								<li><a href="/shop/list?c=101&l=2">탄산음료</a></li>
-								<li><a href="/shop/list?c=102&l=2">주스</a></li>
-								<li><a href="/shop/list?c=103&l=2">음류수</a></li>
-							</ul>
-					<li><a href="/shop/list?c=400&l=1">커피</a></li>
-					<li><a href="/shop/list?c=400&l=1">티,스무디</a></li>
-					<li><a href="/shop/list?c=400&l=1">기타</a></li>
-					
-				</ul>
-				<br>
-				<hr>
-				<br>
-			</aside>
+			
 		</div>
 	</section>
     
     
-<footer id = "content" >
-   <h3>오늘본 상품 정보</h3>
-   <table>
-      <tr>
-         <%-- <%
-            for(int i = 0;i < todayImageList.size();i++) {
-         %> --%>
-         
-         <c:forEach var = "todayImage" items = "${todayImageList }" varStatus = "status">
-         <td>
-            <img src="images/${todayImage }"
-            class = "todayImage"/>
-         </td>
-         <c:if test="${(status.index + 1) % 6 == 0}">
-         <%-- <%
-            if((i + 1) % 6 == 0){
-         %> --%>
-            </tr>
-            <tr>                           
-         <%-- <%
-            }
-         
-            }
-         %> --%>
-         </c:if>
-         </c:forEach>
-      </tr>
-      </table>
-</footer>
+<footer id = "content" style = "">
+		<a href="" style = "float:right" >장바구니 보기</a>
+<%-- 		<a href="dogCartAdd.dog?id=<%=dogVO.getId()%>" style = "float:right">장바구니담기</a>
+ --%>	
+ 	</footer>
 </body>
 </html>
