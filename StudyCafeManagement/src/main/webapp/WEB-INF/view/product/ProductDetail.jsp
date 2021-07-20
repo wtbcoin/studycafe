@@ -40,7 +40,7 @@ body { margin:0; padding:0; font-family:'맑은 고딕', verdana; }
 			
 	section h1{
 			 font-size :30px;
-	}
+	} 
 				
    section#container { }
    
