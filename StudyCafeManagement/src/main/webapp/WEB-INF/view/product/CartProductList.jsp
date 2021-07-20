@@ -31,16 +31,17 @@ body { margin:0; padding:0; font-family:'맑은 고딕', verdana; }
       text-decoration:none;
    }
    
-   aside#aside { margin-left: 20px; margin-top: 20px; float:left; width:180px; }
+   aside#aside { margin-left: 60px; margin-top: 20px; float:left; width:180px; height:600px; }
    
-    section#container { }
-			section#content { margin: 20px; float:right; width:700px; }
+    section#container {}
+			section#content { margin: 20px; float:center; width:700px; }
 			aside#aside { float:left; width:180px; }
 			section#container::after { content:""; display:block; clear:both; }	
 			
 	section h1{
 			 font-size :30px;
-	}		
+	}	
+		
    section#container { }
    
    aside#aside h3 { font-size:30px; margin-bottom:20px; text-align:center; }
@@ -73,81 +74,95 @@ body { margin:0; padding:0; font-family:'맑은 고딕', verdana; }
 
         </div>
     </header>
- 	
-<aside id="aside">
-				<h3>장바구니</h3>
-				<hr>
-				<br>
-				<br>
-				<br>
-				<br>
-				<br>
-				<br>
-				<br>
-				<br>
-				<br>
-				<br>
-				<br>
-				<br>
-				<br>
-				<br>
-				<br>
-				<br>
-				<br>
-				<br>
-				<br>
-				<hr>
-				<br>
-</aside>	   
+ 	   
     
    <section id="container">
 		<div id="container_box">
 		
-			<section id = "content">
+		 	
+<aside id="aside">
+				<h3>장바구니</h3>
+				<hr>
+				
+</aside>	   
+
+		<section id = "content">
    <%-- <%
-      if(dogList == null || dogList.size() == 0) { 
+      if(cartList == null || cartList.size() == 0) { 
    %> --%>
-   <c:if test="${empty dogList }">
-      <h1>등록된 개정보가 없습니다.</h1>
-      </c:if>
-<%--    <%
+   <c:if test="${empty cartList }">
+      <h1>등록된 장바구니 항목이 없습니다.</h1>
+   </c:if>
+   <%-- <%
       }
       else{   
    %> --%>
-   <c:if test="${not empty dogList }">
-      <h1>개상품목록</h1> 
+      <c:if test="${not empty cartList }">
+      <h1>장바구니목록</h1>
+      <form action="dogCartRemove.dog" method = "POST" name = "myForm">
       <table>
-      <tr>
-         <%-- <%
-            for(int i = 0;i < dogList.size();i++) {
-         %> --%>
-         <c:forEach var = "dog" items = "${dogList }" varStatus="status">
-         <!-- varStatus : forEach 블록에서 반복 상태를 저장하는 속성 -->
-         <td>
-            <a href="dogView.dog?id=${dog.id }"><img src = "images/${dog.image }" class = "productImage"/></a><br>
-            상품명 : ${dog.kind }<br>
-            가격 : ${dog.price }원
+      <tr class = "tr_title">
+          <td>
+            <input type="checkbox" name = "allDelete" id = "allDelete"
+            onclick = "checkAll()"/>
          </td>
-         <c:if test="${(status.index + 1) % 4 == 0}">
-         <%-- <%
-            if((i + 1) % 4 == 0){
-         %> --%>
-            </tr>
-            <tr>                           
-         <%-- <%
-            }
-         
-            }
-         %> --%>
-         </c:if>
-         </c:forEach>
+         <td>번호</td>
+         <td>상품이미지</td>
+         <td>상품명</td>
+         <td>가격</td>
+         <td>수량</td>
       </tr>
-      </table>
-      </c:if>
-<%--    <%
+      <c:set var = "num" value = "${0 }"></c:set>
+         <%-- <%
+            int num = 1;
+            for(int i = 0;i < cartList.size();i++) {
+         %> --%>
+         <c:forEach var = "cart" items = "${cartList }">
+         <c:set var = "num" value = "${num + 1 }"></c:set>
+         
+      <tr>
+      <td>
+            <input type="checkbox" name = "delete1" 
+            value = "${cart.kind }"/>
+         </td>
+          <td>${num}</td>
+         <td><img src = "images/${cart.image }"
+         class = "cartImage"/></td>
+         <td>${cart.kind }</td>
+         <td>${cart.price }</td>
+         <td>
+         <a href = "javascript:upQty('dogCartQtyUp.dog?kind=${cart.kind }')"><img src = "images/up.jpg" class = "upDownImage"/></a><br>
+         ${cart.qty }개<br>
+         <a href = "javascript:checkQty('${cart.kind }', ${cart.qty })"><img src = "images/down.jpg" class = "upDownImage"/></a><br>
+         </td>         
+         
+         
+      </tr>
+      
+      </tr>
+      </c:forEach>
+         <%-- <%
       }
-   %> --%>
+       %> --%>
+       <tr>
+          <td colspan = "6" style = "text-align: right ;font-size: x-Large;">
+          ${totalMoney}원
+          </td>
+       </tr>
+       <tr>
+          <td colspan = "6" style = "text-align: right ;font-size: x-Large;">
+             <input type = "submit" value = "삭제"/>
+          </td>
+       </tr>
+      </table>
+      </form>
+      </c:if>
+      <%-- <%
+      }
+      %> --%>
 </section>
+
+
 <%-- <%
    if(todayImageList != null && todayImageList.size() > 0){
 %> --%>
@@ -156,8 +171,9 @@ body { margin:0; padding:0; font-family:'맑은 고딕', verdana; }
 	</section>
 
     
+    
 <footer id = "content" style = "">
-		<a href="" style = "float:right" >쇼핑계속하기</a>
+		<a href="" style = "float:right" >쇼핑 계속하기</a>
 <%-- 		<a href="dogCartAdd.dog?id=<%=dogVO.getId()%>" style = "float:right">장바구니담기</a>
  --%>	
  	</footer>
