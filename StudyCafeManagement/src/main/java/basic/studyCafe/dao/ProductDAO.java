@@ -5,4 +5,5 @@ import basic.studyCafe.vo.ProductVO;
 
 public interface ProductDAO {
 	public ArrayList<ProductVO> getProducts();
+	
 }

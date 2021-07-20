@@ -262,7 +262,8 @@
 			<a href="">아이디 찾기</a>
 			<span class="bar" aria-hidden="true">|</span>
 			<a href="">비밀번호 찾기</a>
-			<span class="bar" aria-hidden="true">|</span>
+			<br>
+			<span class="bar" aria-hidden="true"></span>
 			<a href="">회원가입</a>
 		</fieldset>
 		</form>

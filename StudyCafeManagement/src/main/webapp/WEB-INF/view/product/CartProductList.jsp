@@ -37,11 +37,10 @@ body { margin:0; padding:0; font-family:'맑은 고딕', verdana; }
 			section#content { float:right; width:700px; }
 			aside#aside { float:left; width:180px; }
 			section#container::after { content:""; display:block; clear:both; }	
-
+			
 	section h1{
 			 font-size :30px;
-	}
-				
+	}		
    section#container { }
    
    aside#aside h3 { font-size:30px; margin-bottom:20px; text-align:center; }
@@ -129,32 +128,26 @@ body { margin:0; padding:0; font-family:'맑은 고딕', verdana; }
 %> --%>
 			
 			<aside id="aside">
-				<h3>카테고리</h3>
-			<hr>
-				
-				<ul>
-					<br>
-					<li><a href="/shop/list?c=100&l=1">과자</a>
-				
-						<ul class="low">
-							<li><a href="/shop/list?c=101&l=2">베스트과자</a></li>
-							<li><a href="/shop/list?c=102&l=2">달콤한과자</a></li>
-							<li><a href="/shop/list?c=103&l=2">그냥과자</a></li>
-						</ul>
-						
-					</li>
-					<li><a href="/shop/list?c=200&l=1">빵</a></li>
-					<li><a href="/shop/list?c=300&l=1">음료</a></li>
-						<ul class="low">
-								<li><a href="/shop/list?c=101&l=2">탄산음료</a></li>
-								<li><a href="/shop/list?c=102&l=2">주스</a></li>
-								<li><a href="/shop/list?c=103&l=2">음류수</a></li>
-							</ul>
-					<li><a href="/shop/list?c=400&l=1">커피</a></li>
-					<li><a href="/shop/list?c=400&l=1">티,스무디</a></li>
-					<li><a href="/shop/list?c=400&l=1">기타</a></li>
-					
-				</ul>
+				<h3>장바구니</h3>
+				<hr>
+				<br>
+				<br>
+				<br>
+				<br>
+				<br>
+				<br>
+				<br>
+				<br>
+				<br>
+				<br>
+				<br>
+				<br>
+				<br>
+				<br>
+				<br>
+				<br>
+				<br>
+				<br>
 				<br>
 				<hr>
 				<br>

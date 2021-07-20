@@ -37,7 +37,7 @@ body { margin:0; padding:0; font-family:'맑은 고딕', verdana; }
 			section#content { float:right; width:700px; }
 			aside#aside { float:left; width:180px; }
 			section#container::after { content:""; display:block; clear:both; }	
-
+			
 	section h1{
 			 font-size :30px;
 	}
@@ -76,59 +76,24 @@ body { margin:0; padding:0; font-family:'맑은 고딕', verdana; }
     </header>
     
     
-   <section id="container">
-		<div id="container_box">
-		
-			<section id = "content">
-   <%-- <%
-      if(dogList == null || dogList.size() == 0) { 
-   %> --%>
-   <c:if test="${empty dogList }">
-      <h1>등록된 개정보가 없습니다.</h1>
-      </c:if>
-<%--    <%
-      }
-      else{   
-   %> --%>
-   <c:if test="${not empty dogList }">
-      <h1>개상품목록</h1> 
-      <table>
-      <tr>
-         <%-- <%
-            for(int i = 0;i < dogList.size();i++) {
-         %> --%>
-         <c:forEach var = "dog" items = "${dogList }" varStatus="status">
-         <!-- varStatus : forEach 블록에서 반복 상태를 저장하는 속성 -->
-         <td>
-            <a href="dogView.dog?id=${dog.id }"><img src = "images/${dog.image }" class = "productImage"/></a><br>
-            상품명 : ${dog.kind }<br>
-            가격 : ${dog.price }원
-         </td>
-         <c:if test="${(status.index + 1) % 4 == 0}">
-         <%-- <%
-            if((i + 1) % 4 == 0){
-         %> --%>
-            </tr>
-            <tr>                           
-         <%-- <%
-            }
-         
-            }
-         %> --%>
-         </c:if>
-         </c:forEach>
-      </tr>
-      </table>
-      </c:if>
-<%--    <%
-      }
-   %> --%>
-</section>
-<%-- <%
-   if(todayImageList != null && todayImageList.size() > 0){
-%> --%>
-			
-			<aside id="aside">
+   <section id = "container">
+ 
+	<section id = "content">
+		<aside id = "left_main">
+<%-- 			<img src = "images/<%=dogVO.getImage() %>" --%>
+			class = "productViewImage"/>
+		</aside>
+		<section id = "right_main">
+			<%-- <h1>개 이름: <%=dogVO.getKind() %></h1>
+			<h1>개 가격: <%=dogVO.getPrice() %></h1>
+			<h1>개 원산지: <%=dogVO.getCountry() %></h1>
+			<h1>개 설명: <%=dogVO.getContent() %></h1> --%>
+		</section>
+	</section>
+	
+	<div style = "clear: both;"></div>
+	
+	<aside id="aside">
 				<h3>카테고리</h3>
 			<hr>
 				
@@ -160,37 +125,20 @@ body { margin:0; padding:0; font-family:'맑은 고딕', verdana; }
 				<br>
 			</aside>
 		</div>
+		
+</section>
+
+<%-- <%
+   if(todayImageList != null && todayImageList.size() > 0){
+%> --%>
+			
+		
 	</section>
-    
-    
-<footer id = "content" >
-   <h3>오늘본 상품 정보</h3>
-   <table>
-      <tr>
-         <%-- <%
-            for(int i = 0;i < todayImageList.size();i++) {
-         %> --%>
-         
-         <c:forEach var = "todayImage" items = "${todayImageList }" varStatus = "status">
-         <td>
-            <img src="images/${todayImage }"
-            class = "todayImage"/>
-         </td>
-         <c:if test="${(status.index + 1) % 6 == 0}">
-         <%-- <%
-            if((i + 1) % 6 == 0){
-         %> --%>
-            </tr>
-            <tr>                           
-         <%-- <%
-            }
-         
-            }
-         %> --%>
-         </c:if>
-         </c:forEach>
-      </tr>
-      </table>
-</footer>
+	
+	<footer id = "content" style = "">
+		<a href="" style = "float:right" >쇼핑계속하기</a>
+<%-- 		<a href="dogCartAdd.dog?id=<%=dogVO.getId()%>" style = "float:right">장바구니담기</a>
+ --%>	
+ 	</footer>
 </body>
 </html>
