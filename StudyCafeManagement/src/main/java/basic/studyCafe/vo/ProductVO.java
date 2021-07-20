@@ -66,4 +66,10 @@ public class ProductVO {
 		Prod_readcount = prod_readcount;
 	}
 	
+	@Override
+	public String toString() {
+		// TODO Auto-generated method stub
+		return "prod_name";
+	}
+	
 }

@@ -13,6 +13,7 @@ public interface MemberService {
 	public void removeMember(int id);
 	public Member getModifyMember(int id);
 	public void modifyMember(Member member);
+	
 	public int checkMember(MemberVO member);
 	public void joinMember(MemberVO member);
 	public int checkMemberId(MemberVO member);

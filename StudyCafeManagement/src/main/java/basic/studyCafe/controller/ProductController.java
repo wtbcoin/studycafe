@@ -14,14 +14,14 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import basic.studyCafe.service.MemberService;
+import basic.studyCafe.service.ProductService;
 
 
 @Controller
 @RequestMapping("/product/*")
 public class ProductController extends HttpServlet {
 	
-	private static final Logger logger = LoggerFactory.getLogger(LoginController.class);
+	//private static final Logger logger = LoggerFactory.getLogger(LoginController.class);
 
 	@Autowired
 	private ProductService productService;
