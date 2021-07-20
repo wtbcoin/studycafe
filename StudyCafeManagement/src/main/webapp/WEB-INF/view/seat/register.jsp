@@ -15,6 +15,9 @@
 button {
 	width: 50px;
 	height: 50px;
+	background-color: green;
+	color: white;
+
 }
 #btnDiv {
 	text-align: center;
@@ -45,9 +48,10 @@ button {
 	<br><br><br>
 	
 	<form action="reserve" method = "post" name = "reserveForm">
-		<h3>좌석 번호 : <span id = "seatNum"></span></h3><br>
+		<h3>좌석 번호 : <input type = "text" name = "seatNum" id = "seatNum"></h3><br>
 		<input type = "submit" value = "예약"/>
 	</form>
+	
 
 </body>
 </html>
