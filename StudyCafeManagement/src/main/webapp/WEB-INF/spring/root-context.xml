@@ -17,8 +17,11 @@ http://www.springframework.org/schema/jee/spring-jee.xsd"
 	  
 	  <bean id = "sqlSessionFactory" class = "org.mybatis.spring.SqlSessionFactoryBean">
 	  	<property name="dataSource" ref = "dataSource"></property>
-	  	<property name="mapperLocations" value = "classpath:basic/studyCafe/mybatis/*.xml"></property>
 	  	<property name="configLocation" value = "/WEB-INF/mybatisAlias.xml"></property>
+	  	<property name="mapperLocations" value = "classpath:basic/studyCafe/mybatis/*.xml">
+
+	  </property>
+
 	  </bean>
 	  
 	  <bean id = "sqlSessionTemplate" class = "org.mybatis.spring.SqlSessionTemplate">

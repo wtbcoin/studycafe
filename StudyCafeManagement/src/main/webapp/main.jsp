@@ -190,6 +190,13 @@
    
 </style>
 
+   <script>
+	function gotoProduct() {
+		location.href = "ProductList";
+	}
+
+</script>
+
 </head>
 <body>
     <header>
@@ -199,7 +206,7 @@
                     <img src="" class="logo_image" width="40" height="40" >
                     <a href="/" class="Seat" >좌석</a>
                     <a href="/" class="Product" >상품</a>
-                    <a href="/" class="Community" >커뮤니티</a>
+                    <a href="/ProductList" class="Community" >커뮤니티</a>
                     <a href="/" class="Board" >공지사항</a>
                     <a href="/" class="Message" >메시지</a>
             </div>
@@ -255,7 +262,8 @@
 			<a href="">아이디 찾기</a>
 			<span class="bar" aria-hidden="true">|</span>
 			<a href="">비밀번호 찾기</a>
-			<span class="bar" aria-hidden="true">|</span>
+			<br>
+			<span class="bar" aria-hidden="true"></span>
 			<a href="">회원가입</a>
 		</fieldset>
 		</form>
