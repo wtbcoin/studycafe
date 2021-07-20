@@ -24,8 +24,9 @@ public class ProductController extends HttpServlet {
 	private static final Logger logger = LoggerFactory.getLogger(LoginController.class);
 
 	@Autowired
-	private ProductService productService;
-
+	/*
+	 * private ProductService productService;
+	 */
 	@RequestMapping(value = "/Productlist", method = RequestMethod.GET)
 	public String LoginMain() {
 		return "product/Productlist";

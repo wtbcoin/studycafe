@@ -2,6 +2,8 @@ package basic.studyCafe.service;
 
 import java.util.ArrayList;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -15,41 +17,28 @@ public class MemberServiceImpl implements MemberService {
 	private MemberDAO memberDAO;
 
 	@Override
-	public ArrayList<Member> getMembers() {
+	public int checkMember(MemberVO member, HttpSession session) {
 		// TODO Auto-generated method stub
-		ArrayList<Member> memberList = memberDAO.getMembers();
-		return memberList;
-	}
+		if (memberDAO.getLoginMember(member) == 1) {
+			MemberVO member2 = viewMember(member);
 
-	@Override
-	public void addMember(Member member) {
-		// TODO Auto-generated method stub
-		memberDAO.insertMember(member);
-	}
+			session.setAttribute("user_id", member2.getUser_id());
+			session.setAttribute("user_name", member2.getUser_name());
+		}
 
-	@Override
-	public void removeMember(int id) {
-		// TODO Auto-generated method stub
-		memberDAO.deleteMember(id);
-	}
-
-	@Override
-	public Member getModifyMember(int id) {
-		// TODO Auto-generated method stub
-		Member member = memberDAO.selectUpdateMember(id);
-		return member;
-	}
-
-	@Override
-	public void modifyMember(Member member) {
-		// TODO Auto-generated method stub
-		memberDAO.updateMember(member);
-	}
-
-	@Override
-	public int checkMember(MemberVO member) {
-		// TODO Auto-generated method stub
 		return memberDAO.getLoginMember(member);
+	}
+
+	@Override
+	public MemberVO viewMember(MemberVO member) {
+		// TODO Auto-generated method stub
+		return memberDAO.getMemberVO(member);
+	}
+	
+	@Override
+	public void logoutMember(HttpSession session) {
+		// TODO Auto-generated method stub
+		session.invalidate();
 	}
 
 	@Override

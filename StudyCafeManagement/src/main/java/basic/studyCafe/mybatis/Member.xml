@@ -5,30 +5,19 @@
 <mapper namespace = "basic.studyCafe.mybatis.MemberMapper">
 	<!-- namespace가 Mapper 인터페이스의 풀패스와 동일해야 함 -->
 	
-	<resultMap type="member" id="MemberResultMap">
-		<result property="id" column="ID"/>
-		<result property="name" column="NAME"/>
-		<result property="email" column="EMAIL"/>
-		<result property="phone" column="PHONE"/>
-	</resultMap>
-	
 	<resultMap type = "MemberVO" id="MemberVOREsultMap">
 		<result property="user_id" column="user_id"/>
 		<result property="user_password" column="user_password"/>
 	</resultMap>
 	
-	<select id="getMembers" resultType = "member">
-		SELECT * FROM member1
-	</select>
-	
-	<select id = "getUpdateMember" resultType = "member"
-	parameterType="int">
-		SELECT * FROM member1 WHERE id = #{id}
-	</select>
-	
 	<select id = "getLoginMember" resultType = "int"
 	parameterType="MemberVO">
 		SELECT COUNT(*) FROM CafeUser WHERE user_id = #{user_id} AND user_password = #{user_password}
+	</select>
+	
+	<select id = "getMemberVO" resultType = "MemberVO"
+	parameterType="MemberVO">
+		SELECT * FROM CafeUser WHERE user_id = #{user_id} AND user_password = #{user_password}
 	</select>
 	
 	<select id = "getMemberId" resultType = "int"
@@ -51,21 +40,11 @@
 		SELECT * FROM CafeUser WHERE user_name = #{user_name} AND user_id = #{user_id}
 	</select>
 	
-	<insert id="insertMember" parameterType="member">
-		INSERT INTO member1 VALUES(member1_seq.nextval, #{name}, #{email}, #{phone})
-	</insert>
 	
 	<insert id="insertMemberVO" parameterType="memberVO">
 		INSERT INTO CafeUser VALUES(#{user_id}, #{user_password}, #{user_checkpw}, #{user_name}, #{user_gender}, #{user_phone}, #{user_address}, #{user_email}, #{user_birth})
 	</insert>
 	
-	<update id="updateMember" parameterType="member">
-		UPDATE member1 SET name = #{name}, email = #{email}, phone = #{phone}
-		WHERE id = #{id}
-	</update>
-	
-	<delete id="deleteMember" parameterType = "int">
-		DELETE member1 WHERE id = #{id}
-	</delete>
+
 	
 </mapper>

@@ -4,8 +4,8 @@
   "http://mybatis.org/dtd/mybatis-3-config.dtd">
   <configuration>
   	<typeAliases>
-  		<typeAlias type="basic.studyCafe.vo.Member" alias = "member"/>
   		<typeAlias type="basic.studyCafe.vo.MemberVO" alias = "MemberVO"/>
+  		<typeAlias type="basic.studyCafe.vo.BoardVO" alias = "BoardVO"/>
   		
   	</typeAliases>
   </configuration>

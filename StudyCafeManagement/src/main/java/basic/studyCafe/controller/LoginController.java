@@ -4,7 +4,9 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import org.mybatis.logging.Logger;
 import org.mybatis.logging.LoggerFactory;
@@ -35,22 +37,33 @@ public class LoginController {
 	}
 
 	@RequestMapping(value = "/login", method = RequestMethod.POST)
-	public String Login(@RequestParam("id") String id, @RequestParam("password") String password) {
+	public String Login(@RequestParam("id") String id, @RequestParam("password") String password, HttpSession session) {
 		String path = " ";
 		MemberVO member = new MemberVO();
 
 		member.setUser_id(id);
 		member.setUser_password(password);
 
-		int result = memberService.checkMember(member);
+		int result = memberService.checkMember(member, session);
 
 		if (result == 1) {
-			path = "redirect:/main";
+			path = "common/main";
 		} else {
 			path = "seat/list";
 		}
 
 		return path;
+	}
+
+	@RequestMapping("main")
+	public String main() {
+		return "common/main";
+	}
+
+	@RequestMapping(value = "/logout")
+	public String Logout(HttpSession session) {
+		memberService.logoutMember(session);
+		return "common/LoginMain";
 	}
 
 	@RequestMapping(value = "/JoinForm", method = RequestMethod.GET)
@@ -75,8 +88,8 @@ public class LoginController {
 	}
 
 	@RequestMapping(value = "/findIdForm", method = RequestMethod.POST)
-	public ModelAndView CheckId(@RequestParam("user_name") String user_name, @RequestParam("user_phone") String user_phone,
-			HttpServletResponse response) throws IOException {
+	public ModelAndView CheckId(@RequestParam("user_name") String user_name,
+			@RequestParam("user_phone") String user_phone, HttpServletResponse response) throws IOException {
 		ModelAndView mav = new ModelAndView();
 		MemberVO member = new MemberVO();
 
@@ -86,28 +99,28 @@ public class LoginController {
 		int result = memberService.checkMemberId(member);
 		MemberVO forIdMember = memberService.getFindIdMember(member);
 		mav.addObject("forIdMember", forIdMember);
-		
+
 		response.setContentType("text/html; charset=UTF-8");
 		PrintWriter out = response.getWriter();
 
 		if (result == 1) {
 			mav.setViewName("common/SuccessFindId");
-			} else {
+		} else {
 			out.println("<script>alert('경고!! 입력하신 정보가 일치하지 않습니다.');</script>");
 			out.flush();
 			mav.setViewName("common/FindIdForm");
 		}
 		return mav;
 	}
-	
+
 	@RequestMapping(value = "/findPasswordForm", method = RequestMethod.GET)
 	public String FindPassword() {
 		return "common/FindPasswordForm";
 	}
-	
+
 	@RequestMapping(value = "/findPasswordForm", method = RequestMethod.POST)
-	public ModelAndView CheckPassword(@RequestParam("user_name") String user_name, @RequestParam("user_id") String user_id,
-			HttpServletResponse response) throws IOException {
+	public ModelAndView CheckPassword(@RequestParam("user_name") String user_name,
+			@RequestParam("user_id") String user_id, HttpServletResponse response) throws IOException {
 		ModelAndView mav = new ModelAndView();
 		MemberVO member = new MemberVO();
 
@@ -117,21 +130,19 @@ public class LoginController {
 		int result = memberService.checkMemberPassword(member);
 		MemberVO forPasswordMember = memberService.getFindPasswordMember(member);
 		mav.addObject("forPasswordMember", forPasswordMember);
-		
+
 		response.setContentType("text/html; charset=UTF-8");
 		PrintWriter out = response.getWriter();
 
 		if (result == 1) {
-			mav.setViewName("common/SuccessFindPassword");
-			} else {
+			mav.setViewName("common/main");
+		} else {
 			out.println("<script>alert('경고!! 입력하신 정보가 일치하지 않습니다.');</script>");
 			out.flush();
 			mav.setViewName("common/FindPasswordForm");
 		}
 		return mav;
- 
-		
+
 	}
-	
 
 }

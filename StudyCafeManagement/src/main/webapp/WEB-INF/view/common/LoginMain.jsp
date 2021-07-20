@@ -47,8 +47,11 @@ input {
 
 			<h1>로그인</h1>
 			<img src="logo.jpg"><br> <input type="text" name="id"
+			value="${CafeUser.user_id}"
 				id="id" placeholder="아이디를 입력해주세요."><br> <input
-				type="password" name="password" id="password"
+				type="password" name="password" 
+				value = "${CafeUser.user_id }"
+				id="password"
 				placeholder="비밀번호를 입력해주세요."><br> <br> <input
 				type="submit" value="로그인"><br> <br>
 		</form>
