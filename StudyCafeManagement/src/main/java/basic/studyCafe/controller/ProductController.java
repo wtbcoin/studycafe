@@ -47,4 +47,8 @@ public class ProductController extends HttpServlet {
 	public String ProductUpdate() {
 		return "product/ProductUpdate";
 	}
+	@RequestMapping(value = "/ProductSearched", method = RequestMethod.GET)
+	public String ProductSearched() {
+		return "product/ProductSearched";
+	}
 }
