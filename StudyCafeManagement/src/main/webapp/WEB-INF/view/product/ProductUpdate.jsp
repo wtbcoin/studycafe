@@ -110,23 +110,12 @@ body { margin:0; padding:0; font-family:'맑은 고딕', verdana; }
 			<br>
 	</aside>
 	
-	<section id = "content">
-		<aside id = "left_main">
-<%-- 			<img src = "images/<%=dogVO.getImage() %>" --%>
-			class = "productViewImage"/>
-		</aside>
-		<section id = "right_main">
-			<%-- <h1>개 이름: <%=dogVO.getKind() %></h1>
-			<h1>개 가격: <%=dogVO.getPrice() %></h1>
-			<h1>개 원산지: <%=dogVO.getCountry() %></h1>
-			<h1>개 설명: <%=dogVO.getContent() %></h1> --%>
-		</section>
-	</section>
 	
-	<div style = "clear: both;"></div>
-
-	</div>
-		
+	
+	
+	
+	
+	
 </section>
 
 <%-- <%
@@ -137,7 +126,8 @@ body { margin:0; padding:0; font-family:'맑은 고딕', verdana; }
 	</section>
 	
 	<footer id = "content" style = "">
-		<a href="" style = "float:right" >장바구니 보기</a>
+		<a href="" style = "float:right" > 수정 </a>
+		<a href="" style = "float:right" > 취소 </a>
 <%-- 		<a href="dogCartAdd.dog?id=<%=dogVO.getId()%>" style = "float:right">장바구니담기</a>
  --%>	
  	</footer>
