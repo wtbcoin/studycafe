@@ -30,6 +30,12 @@ public class SeatController {
 
 		return "seat/register";
 	}
+	
+	@RequestMapping(value = "/reserve", method = RequestMethod.POST)
+	public String Reserve() {
+		
+		return "";
+	}
 
 	
 

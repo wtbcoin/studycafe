@@ -11,12 +11,12 @@ CREATE TABLE CafeUser(
 	);
 
 
-CREATE TABLE CafeUser(
+CREATE TABLE CafeUser2(
 	user_id varchar2(20) primary key not null,
 	user_password varchar2(20) not null
 );
 
-drop table CafeUser;
+drop table CafeUser2 purge;
 
-insert into CafeUser values('afsdf222','1232421');
+insert into CafeUser2 values('afsdf222','1232421');
 commit
