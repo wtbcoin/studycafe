@@ -20,6 +20,8 @@
 			<option value="board_user_id">글쓴이</option>
 		</select> <input type="text" name="keyword"> <input type="submit"
 			value="검색">
+
+	</form>
 	<hr>
 
 	<table border="1">
@@ -31,7 +33,7 @@
 			<!-- 			<th>조회수</th>
  -->
 		</tr>
-		<c:forEach var="board" items="${boardList }">
+		<c:forEach var="board" items="${boardSearchList }">
 			<tr>
 				<td>${board.board_number }</td>
 				<td><a href="BoardDetail?board_number=${board.board_number }">${board.board_title}</a></td>

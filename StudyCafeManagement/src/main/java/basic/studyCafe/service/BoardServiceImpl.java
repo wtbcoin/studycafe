@@ -33,9 +33,35 @@ public class BoardServiceImpl implements BoardService{
 	@Override
 	public void registArticle(BoardVO board) {
 		// TODO Auto-generated method stub
-
 		boardDAO.insertArticle(board);
 	}
+
+	@Override
+	public void removeBoard(int board_number) {
+		// TODO Auto-generated method stub
+		boardDAO.deleteBoard(board_number);
+	}
+
+	@Override
+	public void modifyBoard(BoardVO board) {
+		// TODO Auto-generated method stub
+		boardDAO.updateBoard(board);
+	}
+
+	@Override
+	public List<BoardVO> getTitleSearchList(BoardVO searchBoard) {
+		// TODO Auto-generated method stub
+		List<BoardVO> boardSearchList = boardDAO.selectTitleSearchList(searchBoard);
+		return boardSearchList;
+	}
+
+	@Override
+	public List<BoardVO> getIdSearchBoardList(BoardVO searchBoard) {
+		// TODO Auto-generated method stub
+		List<BoardVO> boardSearchList = boardDAO.selectIdSearchList(searchBoard);
+		return boardSearchList;
+	}
+
 	
 
 }

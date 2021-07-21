@@ -46,6 +46,37 @@ public class BoardDAOImpl implements BoardDAO{
 		boardMapper.insertArticle(board);
 	}
 
+	@Override
+	public void deleteBoard(int board_number) {
+		// TODO Auto-generated method stub
+		BoardMapper boardMapper = sqlSession.getMapper(BoardMapper.class);
+		boardMapper.deleteBoard(board_number);		
+	}
+
+	@Override
+	public void updateBoard(BoardVO board) {
+		// TODO Auto-generated method stub
+		BoardMapper boardMapper = sqlSession.getMapper(BoardMapper.class);
+		boardMapper.updateBoard(board);
+	}
+
+	@Override
+	public List<BoardVO> selectTitleSearchList(BoardVO searchBoard) {
+		// TODO Auto-generated method stub
+		BoardMapper boardMapper = sqlSession.getMapper(BoardMapper.class);
+		List<BoardVO> boardSearchList = boardMapper.selectTitleSearchList(searchBoard);
+		return boardSearchList;
+	}
+
+	@Override
+	public List<BoardVO> selectIdSearchList(BoardVO searchBoard) {
+		// TODO Auto-generated method stub
+		BoardMapper boardMapper = sqlSession.getMapper(BoardMapper.class);
+		List<BoardVO> boardSearchList = boardMapper.selectIdSearchList(searchBoard);
+		return boardSearchList;
+	}
+
+
 	
 }
 

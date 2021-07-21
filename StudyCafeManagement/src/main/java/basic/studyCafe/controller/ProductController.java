@@ -24,21 +24,12 @@ public class ProductController extends HttpServlet {
 	private static final Logger logger = LoggerFactory.getLogger(LoginController.class);
 
 	@Autowired
-<<<<<<< HEAD
-	/*
-	 * private ProductService productService;
-	 */
-	@RequestMapping(value = "/Productlist", method = RequestMethod.GET)
-	public String LoginMain() {
-		return "product/Productlist";
-=======
 	private ProductService productService;
 
 	@RequestMapping(value = "/ProductList", method = RequestMethod.GET)
 	public String ProductList() {
 		return "product/ProductList";
 	}
-	
 	@RequestMapping(value = "/CartProductList", method = RequestMethod.GET)
 	public String CartProductList() {
 		return "product/CartProductList";
@@ -58,6 +49,5 @@ public class ProductController extends HttpServlet {
 	@RequestMapping(value = "/ProductSearched", method = RequestMethod.GET)
 	public String ProductSearched() {
 		return "product/ProductSearched";
->>>>>>> branch 'master' of https://github.com/wtbcoin/studycafe.git
 	}
 }

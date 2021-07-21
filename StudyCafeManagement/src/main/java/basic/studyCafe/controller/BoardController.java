@@ -38,20 +38,65 @@ public class BoardController {
 		mav.addObject("board", board);
 		return mav;
 	}
-	
 
 	@RequestMapping(value = "/BoardInsert", method = RequestMethod.GET)
 	public String boardWriteForm() {
 		return "/board/BoardWriteForm";
 	}
-	
+
 	@RequestMapping(value = "/BoardInsert", method = RequestMethod.POST)
 	public String registBoard(@RequestParam("user_id") String user_id, BoardVO board) {
-		/*
-		 * board.setUser_id(user_id); boardService.registArticle(board);
-		 */		
-		System.out.println(user_id);
-		return "common/main";
+
+		board.setUser_id(user_id);
+		boardService.registArticle(board);
+
+		return "redirect:/board/BoardList";
+	}
+
+	@RequestMapping(value = "/BoardUpdate", method = RequestMethod.GET)
+	public ModelAndView boardUpdateForm(@RequestParam int board_number) {
+		ModelAndView mav = new ModelAndView();
+		BoardVO board = boardService.getBoardDetail(board_number);
+
+		mav.setViewName("board/BoardUpdateForm");
+		mav.addObject("board", board);
+
+		return mav;
+	}
+
+	@RequestMapping(value = "/BoardUpdate", method = RequestMethod.POST)
+	public String updateBoard(BoardVO board) {
+		boardService.modifyBoard(board);
+		return "redirect:/board/BoardList";
+	}
+
+	@RequestMapping("/BoardDelete")
+	public String removeBoard(@RequestParam int board_number) {
+		boardService.removeBoard(board_number);
+		return "redirect:/board/BoardList";
+	}
+
+	@RequestMapping(value = "/BoardSearch", method = RequestMethod.POST)
+	public ModelAndView viewBoardSearchList(@RequestParam(defaultValue = "board_title") String search_option,
+			@RequestParam("keyword") String keyword, BoardVO searchBoard) {
+		ModelAndView mav = new ModelAndView();
+		List<BoardVO> boardList = boardService.getBoardList();
+
+		List<BoardVO> boardSearchList;
+		if (search_option.equals("board_title")) {
+			searchBoard.setBoard_title(keyword);
+			boardSearchList = boardService.getTitleSearchList(searchBoard);
+		} else {
+			searchBoard.setUser_id(keyword);
+			boardSearchList = boardService.getIdSearchBoardList(searchBoard);
+		}
+
+		mav.setViewName("board/BoardSearchList");
+		mav.addObject("boardSearchList", boardSearchList);
+		
+	
+
+		return mav;
 	}
 	
 

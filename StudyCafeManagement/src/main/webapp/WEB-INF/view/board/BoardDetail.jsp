@@ -24,7 +24,7 @@
 		</tr>
 		<tr>
 			<td>${board.board_number }</td>
-			<td><a href = "board_detail.do?seq=${board.board_number }">${board.board_title}</a></td>
+			<td>${board.board_title}</td>
 			<td>${board.user_id}</td>
 			<td>${board.board_time}</td>
 		</tr>

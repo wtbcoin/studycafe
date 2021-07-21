@@ -2,31 +2,58 @@
 <!DOCTYPE mapper
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace = "basic.studyCafe.mybatis.BoardMapper">
+<mapper namespace="basic.studyCafe.mybatis.BoardMapper">
 	<!-- namespace가 Mapper 인터페이스의 풀패스와 동일해야 함 -->
-	
+
 	<resultMap type="BoardVO" id="BoardVOResultMap">
-		<result property="id" column="ID"/>
-		<result property="name" column="NAME"/>
-		<result property="email" column="EMAIL"/>
-		<result property="phone" column="PHONE"/>
+		<result property="id" column="ID" />
+		<result property="name" column="NAME" />
+		<result property="email" column="EMAIL" />
+		<result property="phone" column="PHONE" />
 	</resultMap>
-	
-	
-	<select id="selectBoardList" resultType = "BoardVO">
-		SELECT * FROM board_info ORDER BY board_number DESC
+
+
+	<select id="selectBoardList" resultType="BoardVO">
+		SELECT * FROM board_info
+		ORDER BY board_number DESC
 	</select>
-	
-	<select id="selectBoard" resultType = "BoardVO" 
-	parameterType="int">
-		SELECT * FROM board_info WHERE board_number = #{board_number}
+
+	<select id="selectBoard" resultType="BoardVO"
+		parameterType="int">
+		SELECT * FROM board_info WHERE board_number =
+		#{board_number}
 	</select>
-	
+
+	<select id="selectTitleSearchList" resultType="BoardVO"
+		parameterType="BoardVO">
+		SELECT * FROM board_info WHERE board_title LIKE '%'||#{board_title}||'%'
+		ORDER BY board_number DESC
+	</select>
+
+	<select id="selectIdSearchList" resultType="BoardVO"
+		parameterType="BoardVO">
+		SELECT * FROM board_info WHERE user_id LIKE '%'||#{user_id}||'%'
+		ORDER BY board_number DESC
+	</select>
+
 	<insert id="insertArticle" parameterType="BoardVO">
-	INSERT INTO board_info VALUES(Board_info_seq.nextval, #{user_id}, 1, #{board_title}, '커뮤',  sysdate, 1, #{board_content}, '보류', 'F')
+		INSERT INTO board_info
+		VALUES(Board_info_seq.nextval, #{user_id}, 1,
+		#{board_title}, '커뮤',
+		sysdate, 1, #{board_content}, '보류', 'F')
 	</insert>
-	
-<!-- INSERT INTO board_info VALUES(Board_info_seq.nextval, 'aaa', 1, 'dsfsd', '커뮤',  sysdate, 1, 'dsfds', '보류', 'F')
- -->
-	
+
+	<update id="updateBoard" parameterType="BoardVO">
+		UPDATE board_info SET
+		board_title = #{board_title}, board_content =
+		#{board_content} WHERE
+		board_number = #{board_number}
+	</update>
+
+	<delete id="deleteBoard" parameterType="int">
+		DELETE board_info WHERE
+		board_number = #{board_number}
+	</delete>
+
+
 </mapper>

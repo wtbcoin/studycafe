@@ -5,12 +5,8 @@
   <configuration>
   	<typeAliases>
   		<typeAlias type="basic.studyCafe.vo.MemberVO" alias = "MemberVO"/>
-<<<<<<< HEAD
   		<typeAlias type="basic.studyCafe.vo.BoardVO" alias = "BoardVO"/>
-  		
-=======
   		<typeAlias type="basic.studyCafe.vo.ProductVO" alias = "ProductVO"/>
   		<typeAlias type="basic.studyCafe.vo.CartProductVO" alias = "CartProductVO"/>
->>>>>>> branch 'master' of https://github.com/wtbcoin/studycafe.git
   	</typeAliases>
   </configuration>
