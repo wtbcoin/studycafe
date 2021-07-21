@@ -37,7 +37,8 @@ public class LoginController {
 	}
 
 	@RequestMapping(value = "/login", method = RequestMethod.POST)
-	public String Login(@RequestParam("id") String id, @RequestParam("password") String password, HttpSession session) {
+	public String Login(@RequestParam("id") String id, @RequestParam("password") String password, HttpSession session,
+			HttpServletResponse response) throws IOException {
 		String path = " ";
 		MemberVO member = new MemberVO();
 
@@ -46,10 +47,16 @@ public class LoginController {
 
 		int result = memberService.checkMember(member, session);
 
+		response.setContentType("text/html; charset=UTF-8");
+		PrintWriter out = response.getWriter();
+
+		
 		if (result == 1) {
-			path = "common/main";
+			path = "common/LoginMain";
 		} else {
-			path = "seat/list";
+			out.println("<script>alert('경고!! 입력하신 정보가 일치하지 않습니다.');</script>");
+			out.flush();
+			path = "common/Main";
 		}
 
 		return path;
@@ -63,7 +70,7 @@ public class LoginController {
 	@RequestMapping(value = "/logout")
 	public String Logout(HttpSession session) {
 		memberService.logoutMember(session);
-		return "common/LoginMain";
+		return "common/Main";
 	}
 
 	@RequestMapping(value = "/JoinForm", method = RequestMethod.GET)

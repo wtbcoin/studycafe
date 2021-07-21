@@ -62,6 +62,12 @@ public class BoardServiceImpl implements BoardService{
 		return boardSearchList;
 	}
 
+	@Override
+	public void increaseCount(int board_number) {
+		// TODO Auto-generated method stub
+		boardDAO.updateCount(board_number);
+	}
+
 	
 
 }

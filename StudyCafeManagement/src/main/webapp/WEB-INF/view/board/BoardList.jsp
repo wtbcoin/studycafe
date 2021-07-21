@@ -28,8 +28,8 @@
 			<th>제목</th>
 			<th>글쓴이</th>
 			<th>작성일</th>
-			<!-- 			<th>조회수</th>
- -->
+			<th>조회수</th>
+
 		</tr>
 		<c:forEach var="board" items="${boardList }">
 			<tr>
@@ -37,6 +37,7 @@
 				<td><a href="BoardDetail?board_number=${board.board_number }">${board.board_title}</a></td>
 				<td>${board.user_id}</td>
 				<td>${board.board_time}</td>
+				<td>${board.board_readcount}</td>
 			</tr>
 		</c:forEach>
 	</table>

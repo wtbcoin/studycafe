@@ -13,4 +13,5 @@ public interface BoardMapper {
 	public void updateBoard(BoardVO board);
 	public List<BoardVO> selectTitleSearchList(BoardVO searchBoard);
 	public List<BoardVO> selectIdSearchList(BoardVO searchBoard);
+	public void updateCount(int board_number);
 }

@@ -14,14 +14,13 @@
 </head>
 <body>
 	<hr>
+	<a href="BoardList">게시판</a><br>
 	<form action="BoardSearch" method="POST">
 		<select name="search_option">
 			<option value="board_title">제목</option>
 			<option value="board_user_id">글쓴이</option>
 		</select> <input type="text" name="keyword"> <input type="submit"
 			value="검색">
-
-	</form>
 	<hr>
 
 	<table border="1">
@@ -30,8 +29,8 @@
 			<th>제목</th>
 			<th>글쓴이</th>
 			<th>작성일</th>
-			<!-- 			<th>조회수</th>
- -->
+			<th>조회수</th>
+
 		</tr>
 		<c:forEach var="board" items="${boardSearchList }">
 			<tr>
@@ -39,6 +38,7 @@
 				<td><a href="BoardDetail?board_number=${board.board_number }">${board.board_title}</a></td>
 				<td>${board.user_id}</td>
 				<td>${board.board_time}</td>
+				<td>${board.board_readcount}</td>
 			</tr>
 		</c:forEach>
 	</table>

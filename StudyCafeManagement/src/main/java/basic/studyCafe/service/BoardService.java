@@ -14,4 +14,5 @@ public interface BoardService {
 	public void modifyBoard(BoardVO board);
 	public List<BoardVO> getTitleSearchList(BoardVO searchBoard);
 	public List<BoardVO> getIdSearchBoardList(BoardVO searchBoard);
+	public void increaseCount(int board_number);
 }

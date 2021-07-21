@@ -34,11 +34,11 @@ public class BoardController {
 	public ModelAndView showBoardDetail(@RequestParam int board_number) {
 		ModelAndView mav = new ModelAndView();
 		BoardVO board = boardService.getBoardDetail(board_number);
+		boardService.increaseCount(board_number);
 		mav.setViewName("board/BoardDetail");
 		mav.addObject("board", board);
 		return mav;
 	}
-
 	@RequestMapping(value = "/BoardInsert", method = RequestMethod.GET)
 	public String boardWriteForm() {
 		return "/board/BoardWriteForm";
@@ -92,9 +92,7 @@ public class BoardController {
 		}
 
 		mav.setViewName("board/BoardSearchList");
-		mav.addObject("boardSearchList", boardSearchList);
-		
-	
+		mav.addObject("boardSearchList", boardSearchList);	
 
 		return mav;
 	}

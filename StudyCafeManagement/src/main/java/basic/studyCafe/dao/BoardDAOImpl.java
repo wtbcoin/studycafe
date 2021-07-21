@@ -76,6 +76,13 @@ public class BoardDAOImpl implements BoardDAO{
 		return boardSearchList;
 	}
 
+	@Override
+	public void updateCount(int board_number) {
+		// TODO Auto-generated method stub
+		BoardMapper boardMapper = sqlSession.getMapper(BoardMapper.class);
+		boardMapper.updateCount(board_number);
+	}
+
 
 	
 }
