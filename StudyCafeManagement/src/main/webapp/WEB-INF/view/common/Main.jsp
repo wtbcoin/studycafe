@@ -267,6 +267,7 @@
 			<span class="bar" aria-hidden="true"></span>
 			<a href="common/JoinForm">회원가입</a>
 		</fieldset>
+		
 		</form>
 		</section>
        </div>
