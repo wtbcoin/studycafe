@@ -2,19 +2,18 @@ package basic.studyCafe.service;
 
 import java.util.List;
 
-import javax.servlet.http.HttpSession;
+
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
-import basic.studyCafe.dao.BoardDAOImpl;
+import basic.studyCafe.dao.BoardDAO;
 import basic.studyCafe.vo.BoardVO;
 
 @Service
 public class BoardServiceImpl implements BoardService{
 	
 	@Autowired
-	private BoardDAOImpl boardDAO;
+	private BoardDAO boardDAO;
 	
 	@Override
 	public List<BoardVO> getBoardList() {

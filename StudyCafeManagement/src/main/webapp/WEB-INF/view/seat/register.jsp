@@ -6,10 +6,15 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <script>
-	function showbtn(id){
+	function showBtn(id){
 		var num = document.getElementById("seatNum");
-		num.innerHTML = id;
+		num.value = id;
 	}
+	function gotoBack(){
+		location.href = "LoginMain";
+	}
+	
+
 </script>
 <style>
 button {
@@ -17,7 +22,6 @@ button {
 	height: 50px;
 	background-color: green;
 	color: white;
-
 }
 #btnDiv {
 	text-align: center;
@@ -30,7 +34,7 @@ button {
 <div id = "btnDiv">
 	<script language="javaScript">
 		for (i = 1; i <= 100; i++) {
-			document.write("<button id = "+ i + " onclick='showbtn(id);'>" + i + "</button>");
+			document.write("<button id = "+ i + " onclick='showBtn(id);'>" + i + "</button>");
 
 			if (i % 2 == 0)
 				document.write("&emsp;");
@@ -41,6 +45,7 @@ button {
 				document.write("<br><br>")
 
 		}
+		
 	</script>
 	
 	</div>
@@ -48,10 +53,14 @@ button {
 	<br><br><br>
 	
 	<form action="reserve" method = "post" name = "reserveForm">
-		<h3>좌석 번호 : <input type = "text" name = "seatNum" id = "seatNum"></h3><br>
+		<label>좌석 번호 : </label><input type = "text" name = "seatNum" id ="seatNum">
+		<input type="hidden" name="user_id"
+					value="${sessionScope.user_id}" />
+		<br>
 		<input type = "submit" value = "예약"/>
 	</form>
 	
+	<button onclick="gotoBack()">뒤로가기</button>
 
 </body>
 </html>

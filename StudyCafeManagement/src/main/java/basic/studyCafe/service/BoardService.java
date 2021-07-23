@@ -2,7 +2,6 @@ package basic.studyCafe.service;
 
 import java.util.List;
 
-import javax.servlet.http.HttpSession;
 
 import basic.studyCafe.vo.BoardVO;
 

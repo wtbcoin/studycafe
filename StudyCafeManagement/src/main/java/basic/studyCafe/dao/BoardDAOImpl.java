@@ -12,7 +12,7 @@ import org.springframework.stereotype.Repository;
 import basic.studyCafe.mybatis.BoardMapper;
 import basic.studyCafe.mybatis.MemberMapper;
 import basic.studyCafe.vo.BoardVO;
-import basic.studyCafe.vo.Member;
+
 
 
 

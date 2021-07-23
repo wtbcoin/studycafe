@@ -203,6 +203,9 @@ header, section {
 	function gotoProduct() {
 		location.href = "ProductList";
 	}
+	function fn_res_form() {
+		location.href = "/StudyCafeManagement/seat/register";
+	}
 </script>
 
 </head>
@@ -234,19 +237,24 @@ header, section {
 		%> --%>
 
 
-				<table class="type01">
-					<tr>
-						<th scope="row">글번호</th>
-						<td>제목이 들어갑니다.</td>
-						<td>날자가 들어갑니다.</td>
-						<!-- 뒤에가 넘치면 밑으로 내려감.  -->
-					</tr>
-					<tr>
-						<th scope="row" class="even">글번호</th>
-						<td class="even">제목이 들어갑니다.</td>
-						<td class="even">날자가 들어갑니다.</td>
-					</tr>
-				</table>
+		<table class="type01">
+				<tr>
+			    	<th scope="row">글번호</th>
+			    	<th scope="row">제목</th>
+					<th scope="row">글쓴이</th>
+					<th scope="row">작성일</th>
+					<th scope="row">조회수</th>
+				</tr>
+			<c:forEach var="board" items="${boardList }">
+				<tr>
+		  			<td class="even">${board.board_number }</td>
+					<td class="even"><a href="BoardDetail?board_number=${board.board_number }">${board.board_title}</a></td>
+					<td class="even">${board.user_id}</td>
+					<td class="even">${board.board_time}</td>
+					<td class="even">${board.board_readcount}</td>
+			    </tr>
+		  	</c:forEach>
+  		</table>
 
 
 
@@ -268,7 +276,21 @@ header, section {
 				<section id="loginFormArea">
 					<c:choose>
 						<c:when test="${sessionScope.user_id == null}">
-							<a href="${path}/StudyCafeManagement/common/LoginMain">로그인</a>
+						<form action="login" method = "POST">
+							<fieldset>
+								<label for = "id"></label>
+								<input type="text" id="id" name="id" class="idInput" placeholder="아이디" maxlength="41" value=""><br>
+								<label for = "passwd"></label>
+								<input type = "password" id = "password" name = "password" class="passwdInput" placeholder="비밀번호" maxlength="41" value=""/><br>
+								<input type = submit class="LoginButton" value = "로그인"/><br>
+									<a href="findIdForm">아이디 찾기</a>
+									<span class="bar" aria-hidden="true">|</span>
+									<a href="findPasswordForm">비밀번호 찾기</a>
+									<br>
+									<span class="bar" aria-hidden="true"></span>
+									<a href="JoinForm">회원가입</a>
+								</fieldset>
+							</form>
 						</c:when>
 						<c:otherwise>
 							<br>${sessionScope.user_name}님이 로그인중입니다.<br>

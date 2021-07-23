@@ -1,42 +1,47 @@
 package basic.studyCafe.controller;
 
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpSession;
+import java.util.List;
 
-import org.apache.ibatis.annotations.Param;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+import org.springframework.web.servlet.ModelAndView;
+
+import basic.studyCafe.service.SeatService;
+import basic.studyCafe.vo.BoardVO;
+import basic.studyCafe.vo.SeatVO;
 
 @Controller
 @RequestMapping("/seat/*")
 public class SeatController {
 
-
-	@RequestMapping(value = "/list", method = RequestMethod.GET)
-	public String listPage() throws Exception {
-
-		return "seat/list";
-	}
-
+	@Autowired
+	private SeatService seatService;
 
 	@RequestMapping(value = "/register")
 	public String registPOST() throws Exception {
 
 		return "seat/register";
 	}
-	
-	@RequestMapping(value = "/reserve", method = RequestMethod.POST)
-	public String Reserve() {
-		
-		return "";
-	}
 
-	
+	@RequestMapping(value = "/reserve", method = RequestMethod.POST)
+	public ModelAndView Reserve(@RequestParam("seatNum") int seatNum, @RequestParam("user_id") String user_id,
+			SeatVO seat) {
+		seat.setSeat_number(seatNum);
+		seat.setUser_id(user_id);
+		seatService.registArticle(seat);
+		
+		ModelAndView mav = new ModelAndView();
+
+		List<SeatVO> seatList = seatService.getSeatList();
+		mav.setViewName("seat/register");
+
+		mav.addObject("seatList", seatList);
+
+		return mav;
+	}
 
 }

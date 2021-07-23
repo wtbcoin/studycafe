@@ -2,7 +2,7 @@ package basic.studyCafe.dao;
 
 import java.util.ArrayList;
 
-import basic.studyCafe.vo.Member;
+
 import basic.studyCafe.vo.MemberVO;
 
 public interface MemberDAO {

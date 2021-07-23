@@ -2,12 +2,12 @@ package basic.studyCafe.dao;
 
 import java.util.ArrayList;
 
+
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import basic.studyCafe.mybatis.MemberMapper;
-import basic.studyCafe.vo.Member;
 import basic.studyCafe.vo.MemberVO;
 
 @Repository

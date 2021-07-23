@@ -2,13 +2,13 @@ package basic.studyCafe.service;
 
 import java.util.ArrayList;
 
+
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import basic.studyCafe.dao.MemberDAO;
-import basic.studyCafe.vo.Member;
 import basic.studyCafe.vo.MemberVO;
 
 @Service

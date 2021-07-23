@@ -1,6 +1,7 @@
 package basic.studyCafe.controller;
 
 import java.io.IOException;
+
 import java.io.PrintWriter;
 import java.util.List;
 
@@ -17,9 +18,9 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+import basic.studyCafe.service.BoardService;
 import basic.studyCafe.service.MemberService;
-import basic.studyCafe.service.MemberServiceImpl;
-import basic.studyCafe.vo.Member;
+import basic.studyCafe.vo.BoardVO;
 import basic.studyCafe.vo.MemberVO;
 
 @Controller
@@ -30,47 +31,47 @@ public class LoginController {
 
 	@Autowired
 	private MemberService memberService;
+	
+	@Autowired
+	private BoardService boardService;
 
 	@RequestMapping(value = "/LoginMain", method = RequestMethod.GET)
-	public String LoginMain() {
-		return "common/LoginMain";
+	public ModelAndView LoginMain() {
+		ModelAndView mav = new ModelAndView();
+		List<BoardVO> boardList = boardService.getBoardList();
+		mav.setViewName("common/LoginMain");
+		mav.addObject("boardList", boardList);
+		return mav;
 	}
-
+	
 	@RequestMapping(value = "/login", method = RequestMethod.POST)
-	public String Login(@RequestParam("id") String id, @RequestParam("password") String password, HttpSession session,
+	public ModelAndView Login(@RequestParam("id") String id, @RequestParam("password") String password, HttpSession session,
 			HttpServletResponse response) throws IOException {
-		String path = " ";
 		MemberVO member = new MemberVO();
-
 		member.setUser_id(id);
 		member.setUser_password(password);
 
 		int result = memberService.checkMember(member, session);
-
 		response.setContentType("text/html; charset=UTF-8");
 		PrintWriter out = response.getWriter();
-
 		
-		if (result == 1) {
-			path = "common/LoginMain";
-		} else {
+		if (result != 1) {
 			out.println("<script>alert('경고!! 입력하신 정보가 일치하지 않습니다.');</script>");
 			out.flush();
-			path = "common/Main";
 		}
-
-		return path;
-	}
-
-	@RequestMapping("main")
-	public String main() {
-		return "common/main";
+		
+		ModelAndView mav = new ModelAndView();
+		List<BoardVO> boardList = boardService.getBoardList();
+		mav.setViewName("common/LoginMain");
+		mav.addObject("boardList", boardList);
+		
+		return mav;
 	}
 
 	@RequestMapping(value = "/logout")
 	public String Logout(HttpSession session) {
 		memberService.logoutMember(session);
-		return "common/Main";
+		return "common/LoginMain";
 	}
 
 	@RequestMapping(value = "/JoinForm", method = RequestMethod.GET)
@@ -81,13 +82,9 @@ public class LoginController {
 	@RequestMapping(value = "/join", method = RequestMethod.POST)
 	public String Join(MemberVO member) {
 		memberService.joinMember(member);
-		return "redirect:/main";
-	}
-
-	@RequestMapping(value = "/back")
-	public String BackLogin() {
 		return "common/LoginMain";
 	}
+
 
 	@RequestMapping(value = "/findIdForm", method = RequestMethod.GET)
 	public String FindId() {
@@ -142,7 +139,7 @@ public class LoginController {
 		PrintWriter out = response.getWriter();
 
 		if (result == 1) {
-			mav.setViewName("common/main");
+			mav.setViewName("common/SuccessFindPassword");
 		} else {
 			out.println("<script>alert('경고!! 입력하신 정보가 일치하지 않습니다.');</script>");
 			out.flush();

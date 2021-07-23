@@ -6,10 +6,16 @@
 	<!-- namespace가 Mapper 인터페이스의 풀패스와 동일해야 함 -->
 
 	<resultMap type="BoardVO" id="BoardVOResultMap">
-		<result property="id" column="ID" />
-		<result property="name" column="NAME" />
-		<result property="email" column="EMAIL" />
-		<result property="phone" column="PHONE" />
+		<result property="board_number" column="board_number" />
+		<result property="user_id" column="user_id" />
+		<result property="board_pagenumber" column="board_pagenumber" />
+		<result property="board_title" column="board_title" />
+		<result property="board_kind" column="board_kind" />
+		<result property="board_time" column="board_time" />
+		<result property="board_readcount" column="board_readcount" />
+		<result property="board_content" column="board_content" />
+		<result property="board_filename" column="board_filename" />
+		<result property="board_popup" column="board_popup" />
 	</resultMap>
 
 

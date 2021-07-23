@@ -7,7 +7,7 @@
 <title>회원가입</title>
 <script>
 	function gotoBack(){
-		location.href = "back";
+		location.href = "LoginMain";
 	}
 </script>
 </head>
