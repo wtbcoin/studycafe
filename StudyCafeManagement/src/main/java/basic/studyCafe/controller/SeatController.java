@@ -22,26 +22,28 @@ public class SeatController {
 	private SeatService seatService;
 
 	@RequestMapping(value = "/register")
-	public String registPOST() throws Exception {
-
-		return "seat/register";
+	public ModelAndView registPOST() throws Exception {
+		ModelAndView mav = new ModelAndView();
+		List<SeatVO> seatList = seatService.getSeatList();
+		mav.setViewName("seat/register");
+		mav.addObject("seatList", seatList);
+		return mav;
 	}
 
 	@RequestMapping(value = "/reserve", method = RequestMethod.POST)
-	public ModelAndView Reserve(@RequestParam("seatNum") int seatNum, @RequestParam("user_id") String user_id,
+	public String reserveSeat(@RequestParam("seatNum") int seatNum, @RequestParam("user_id") String user_id,
 			SeatVO seat) {
 		seat.setSeat_number(seatNum);
 		seat.setUser_id(user_id);
-		seatService.registArticle(seat);
-		
-		ModelAndView mav = new ModelAndView();
-
-		List<SeatVO> seatList = seatService.getSeatList();
-		mav.setViewName("seat/register");
-
-		mav.addObject("seatList", seatList);
-
-		return mav;
+		seatService.registSeat(seat);
+		return "redirect:/seat/register";
+	}
+	
+	@RequestMapping(value = "/return", method = RequestMethod.POST)
+	public String returnSeat(@RequestParam("seatNum") int seatNum, SeatVO seat) {
+		seat.setSeat_number(seatNum);
+		seatService.returnSeat(seat);
+		return "redirect:/seat/register";
 	}
 
 }

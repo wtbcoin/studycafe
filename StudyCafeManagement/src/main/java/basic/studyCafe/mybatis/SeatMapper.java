@@ -6,8 +6,11 @@ import basic.studyCafe.vo.SeatVO;
 
 public interface SeatMapper {
 
-	void updateBoard(SeatVO seat);
+	void updateReserveSeat(SeatVO seat);
 
 	List<SeatVO> selectSeatList();
+
+	void updateReturnSeat(SeatVO seat);
+	
 
 }

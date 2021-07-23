@@ -31,7 +31,7 @@ public class LoginController {
 
 	@Autowired
 	private MemberService memberService;
-	
+
 	@Autowired
 	private BoardService boardService;
 
@@ -43,10 +43,10 @@ public class LoginController {
 		mav.addObject("boardList", boardList);
 		return mav;
 	}
-	
+
 	@RequestMapping(value = "/login", method = RequestMethod.POST)
-	public ModelAndView Login(@RequestParam("id") String id, @RequestParam("password") String password, HttpSession session,
-			HttpServletResponse response) throws IOException {
+	public ModelAndView Login(@RequestParam("id") String id, @RequestParam("password") String password,
+			HttpSession session, HttpServletResponse response) throws IOException {
 		MemberVO member = new MemberVO();
 		member.setUser_id(id);
 		member.setUser_password(password);
@@ -54,24 +54,29 @@ public class LoginController {
 		int result = memberService.checkMember(member, session);
 		response.setContentType("text/html; charset=UTF-8");
 		PrintWriter out = response.getWriter();
-		
+
 		if (result != 1) {
 			out.println("<script>alert('경고!! 입력하신 정보가 일치하지 않습니다.');</script>");
 			out.flush();
 		}
-		
+
 		ModelAndView mav = new ModelAndView();
 		List<BoardVO> boardList = boardService.getBoardList();
 		mav.setViewName("common/LoginMain");
 		mav.addObject("boardList", boardList);
-		
+
 		return mav;
 	}
 
 	@RequestMapping(value = "/logout")
-	public String Logout(HttpSession session) {
+	public ModelAndView Logout(HttpSession session) {
 		memberService.logoutMember(session);
-		return "common/LoginMain";
+
+		ModelAndView mav = new ModelAndView();
+		List<BoardVO> boardList = boardService.getBoardList();
+		mav.setViewName("redirect:common/LoginMain");
+		mav.addObject("boardList", boardList);
+		return mav;
 	}
 
 	@RequestMapping(value = "/JoinForm", method = RequestMethod.GET)
@@ -84,7 +89,6 @@ public class LoginController {
 		memberService.joinMember(member);
 		return "common/LoginMain";
 	}
-
 
 	@RequestMapping(value = "/findIdForm", method = RequestMethod.GET)
 	public String FindId() {

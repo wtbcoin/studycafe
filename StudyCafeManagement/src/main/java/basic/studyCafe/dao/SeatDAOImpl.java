@@ -18,10 +18,10 @@ public class SeatDAOImpl implements SeatDAO{
 	private SqlSession sqlSession;
 
 	@Override
-	public void updateSeat(SeatVO seat) {
+	public void updateReserveSeat(SeatVO seat) {
 		// TODO Auto-generated method stub
 		SeatMapper seatMapper = sqlSession.getMapper(SeatMapper.class);
-		seatMapper.updateBoard(seat);
+		seatMapper.updateReserveSeat(seat);
 
 	}
 	
@@ -32,6 +32,14 @@ public class SeatDAOImpl implements SeatDAO{
 		SeatMapper seatMapper = sqlSession.getMapper(SeatMapper.class);
 		List<SeatVO> seatList = seatMapper.selectSeatList();
 		return seatList;
+	}
+	
+	@Override
+	public void updateReturnSeat(SeatVO seat) {
+		// TODO Auto-generated method stub
+		SeatMapper seatMapper = sqlSession.getMapper(SeatMapper.class);
+		seatMapper.updateReturnSeat(seat);
+
 	}
 
 }

@@ -15,9 +15,9 @@ public class SeatServiceImpl implements SeatService{
 	private SeatDAO seatDAO;
 	
 	@Override
-	public void registArticle(SeatVO seat) {
+	public void registSeat(SeatVO seat) {
 		// TODO Auto-generated method stub
-		seatDAO.updateSeat(seat);
+		seatDAO.updateReserveSeat(seat);
 	}
 	
 	@Override
@@ -25,6 +25,12 @@ public class SeatServiceImpl implements SeatService{
 		// TODO Auto-generated method stub
 		List<SeatVO> seatList = seatDAO.selectSeatList();
 		return seatList;
+	}
+	
+	@Override
+	public void returnSeat(SeatVO seat) {
+		// TODO Auto-generated method stub
+		seatDAO.updateReturnSeat(seat);	
 	}
 
 }

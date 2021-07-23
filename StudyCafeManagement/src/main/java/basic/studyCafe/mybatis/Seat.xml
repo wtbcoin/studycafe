@@ -11,16 +11,23 @@
 		<result property="seat_res" column="seat_res" />
 	</resultMap>
 
-	<select id = "selectSeatList" resultType="SeatVO">
+	<select id="selectSeatList" resultType="SeatVO">
 		SELECT * FROM Seat
 	</select>
 
-	<update id="updateBoard" parameterType="SeatVO">
+	<update id="updateReserveSeat" parameterType="SeatVO">
 		UPDATE Seat SET
 		user_id = #{user_id}, seat_res =
 		'T' WHERE
 		seat_number = #{seat_number}
 	</update>
+
+	<update id="updateReturnSeat" parameterType="SeatVO">
+		UPDATE Seat SET
+		user_id = 'admin', seat_res = 'F'
+		WHERE seat_number = #{seat_number}
+	</update>
+
 
 
 </mapper>

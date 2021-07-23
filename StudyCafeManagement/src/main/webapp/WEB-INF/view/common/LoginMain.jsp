@@ -217,8 +217,8 @@ header, section {
 			스터디 카페</h7>
 			<div class="cafe_menus">
 				<img src="" class="logo_image" width="40" height="40"> <a
-					href="/" class="Seat">좌석</a> <a href="/" class="Product">상품</a> <a
-					href="/ProductList" class="Community">커뮤니티</a> <a href="/"
+					href="/StudyCafeManagement/seat/register" class="Seat">좌석</a> <a href="/" class="Product">상품</a> <a
+					href="/StudyCafeManagement/board/BoardList" class="Community">커뮤니티</a> <a href="/"
 					class="Board">공지사항</a> <a href="/" class="Message">메시지</a>
 			</div>
 
@@ -227,8 +227,7 @@ header, section {
 	<section>
 		<div class="section-container">
 			<div class="temp-box">
-				커뮤니티 <input type="button" value="글쓰기" onclick="fn_insert_form()"
-					style="float: right; margin: 5px; font-size: 15px;">
+				커뮤니티
 				<hr>
 
 
@@ -248,7 +247,7 @@ header, section {
 			<c:forEach var="board" items="${boardList }">
 				<tr>
 		  			<td class="even">${board.board_number }</td>
-					<td class="even"><a href="BoardDetail?board_number=${board.board_number }">${board.board_title}</a></td>
+					<td class="even"><a href="/StudyCafeManagement/board/BoardDetail?board_number=${board.board_number }">${board.board_title}</a></td>
 					<td class="even">${board.user_id}</td>
 					<td class="even">${board.board_time}</td>
 					<td class="even">${board.board_readcount}</td>

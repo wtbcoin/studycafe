@@ -6,8 +6,10 @@ import basic.studyCafe.vo.SeatVO;
 
 public interface SeatService {
 
-	public void registArticle(SeatVO seat);
+	public void registSeat(SeatVO seat);
 
 	public List<SeatVO> getSeatList();
+
+	public void returnSeat(SeatVO seat);
 
 }

@@ -8,9 +8,11 @@ CREATE TABLE Seat(
 
 begin
 	for i in 1..100 loop
-		insert into Seat values(i, 'thsehdgkr', 'F');
+		insert into Seat values(i, 'admin', 'F');
 	end loop; 
 end;
+/
+commit
 
-drop table test purge;
-drop table seat purge;
+drop table seat
+purge;
