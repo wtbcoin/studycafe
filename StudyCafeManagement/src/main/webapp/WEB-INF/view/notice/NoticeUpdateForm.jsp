@@ -26,6 +26,7 @@
 				</td>
 			</tr>
 		</table>
+		
 	</form>
 		<br><a href="NoticeDetail?notice_number=${notice.notice_number }&user_id=${sessionScope.user_id}">이전</a>
 </body>
