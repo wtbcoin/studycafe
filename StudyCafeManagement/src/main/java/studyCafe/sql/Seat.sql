@@ -14,5 +14,5 @@ end;
 /
 commit
 
-drop table seat
+drop table sea
 purge;

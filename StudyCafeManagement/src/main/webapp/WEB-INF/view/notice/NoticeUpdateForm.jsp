@@ -7,17 +7,17 @@
 <title>Insert title here</title>
 </head>
 <body>
-<form action="BoardUpdate" method = "POST">
-		<input type = "hidden" name = "board_number" value = "${board.board_number }">
+<form action="NoticeUpdate" method = "POST">
+		<input type = "hidden" name = "notice_number" value = "${notice.notice_number }">
 		<table>
 			<tr>
 				<td>게시글제목</td>
-				<td><input type = "text" name = "board_title"
-				value = "${board.board_title }"/></td>
+				<td><input type = "text" name = "notice_title"
+				value = "${notice.notice_title }"/></td>
 			</tr>
 			<tr>
 				<td>게시글내용</td>
-				<td><textarea name = "board_content" cols = "20" rows = "10">${board.board_content }</textarea></td>
+				<td><textarea name = "notice_content" cols = "20" rows = "10">${notice.notice_content }</textarea></td>
 			</tr>
 			<tr>
 				<td colspan = "3">

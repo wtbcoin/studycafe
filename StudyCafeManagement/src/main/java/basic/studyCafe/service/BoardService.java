@@ -2,7 +2,6 @@ package basic.studyCafe.service;
 
 import java.util.List;
 
-
 import basic.studyCafe.vo.BoardVO;
 
 public interface BoardService {

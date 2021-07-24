@@ -8,9 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
-
 import basic.studyCafe.service.NoticeService;
-import basic.studyCafe.service.SeatService;
 import basic.studyCafe.vo.NoticeVO;
 
 @Controller
@@ -23,76 +21,74 @@ public class NoticeController {
 	@RequestMapping("/NoticeList")
 	public ModelAndView viewNoticeList() {
 		ModelAndView mav = new ModelAndView();
-		List<NoticeVO> NoticeList = noticeService.getNoticeList();
-		mav.setViewName("Notice/NoticeList");
-		mav.addObject("NoticeList", NoticeList);
+		List<NoticeVO> noticeList = noticeService.getNoticeList();
+		mav.setViewName("notice/NoticeList");
+		mav.addObject("noticeList", noticeList);
 		return mav;
 	}
 
 	@RequestMapping("/NoticeDetail")
-	public ModelAndView showNoticeDetail(@RequestParam int Notice_number) {
+	public ModelAndView showNoticeDetail(@RequestParam int notice_number) {
 		ModelAndView mav = new ModelAndView();
-		NoticeVO Notice = noticeService.getNoticeDetail(Notice_number);
-		NoticeService.increaseCount(Notice_number);
-		mav.setViewName("Notice/NoticeDetail");
-		mav.addObject("Notice", Notice);
+		NoticeVO notice = noticeService.getNoticeDetail(notice_number);
+		noticeService.increaseCount(notice_number);
+		mav.setViewName("notice/NoticeDetail");
+		mav.addObject("notice", notice);
 		return mav;
 	}
 
 	@RequestMapping(value = "/NoticeInsert", method = RequestMethod.GET)
 	public String NoticeWriteForm() {
-		return "/Notice/NoticeWriteForm";
+		return "/notice/NoticeWriteForm";
 	}
 
 	@RequestMapping(value = "/NoticeInsert", method = RequestMethod.POST)
-	public String registNotice(@RequestParam("user_id") String user_id, NoticeVO Notice) {
+	public String registNotice(@RequestParam("user_id") String user_id, NoticeVO notice) {
 
-		Notice.setUser_id(user_id);
-		noticeService.registArticle(Notice);
+		notice.setUser_id(user_id);
+		noticeService.registArticle(notice);
 
-		return "redirect:/Notice/NoticeList";
+		return "redirect:/notice/NoticeList";
 	}
 
 	@RequestMapping(value = "/NoticeUpdate", method = RequestMethod.GET)
-	public ModelAndView NoticeUpdateForm(@RequestParam int Notice_number) {
+	public ModelAndView NoticeUpdateForm(@RequestParam int notice_number) {
 		ModelAndView mav = new ModelAndView();
-		NoticeVO Notice = noticeService.getNoticeDetail(Notice_number);
+		NoticeVO notice = noticeService.getNoticeDetail(notice_number);
 
-		mav.setViewName("Notice/NoticeUpdateForm");
-		mav.addObject("Notice", Notice);
+		mav.setViewName("notice/NoticeUpdateForm");
+		mav.addObject("notice", notice);
 
 		return mav;
 	}
 
 	@RequestMapping(value = "/NoticeUpdate", method = RequestMethod.POST)
-	public String updateNotice(NoticeVO Notice) {
-		NoticeService.modifyNotice(Notice);
-		return "redirect:/Notice/NoticeList";
+	public String updateNotice(NoticeVO notice) {
+		noticeService.modifyNotice(notice);
+		return "redirect:/notice/NoticeList";
 	}
 
 	@RequestMapping("/NoticeDelete")
-	public String removeNotice(@RequestParam int Notice_number) {
-		NoticeService.removeNotice(Notice_number);
-		return "redirect:/Notice/NoticeList";
+	public String removeNotice(@RequestParam int notice_number) {
+		noticeService.removeNotice(notice_number);
+		return "redirect:/notice/NoticeList";
 	}
 
 	@RequestMapping(value = "/NoticeSearch", method = RequestMethod.POST)
-	public ModelAndView viewNoticeSearchList(@RequestParam(defaultValue = "Notice_title") String search_option,
+	public ModelAndView viewNoticeSearchList(@RequestParam(defaultValue = "notice_title") String search_option,
 			@RequestParam("keyword") String keyword, NoticeVO searchNotice) {
 		ModelAndView mav = new ModelAndView();
-		List<NoticeVO> NoticeList = noticeService.getNoticeList();
-
-		List<NoticeVO> NoticeSearchList;
+		List<NoticeVO> noticeSearchList;
 		if (search_option.equals("Notice_title")) {
 			searchNotice.setNotice_title(keyword);
-			NoticeSearchList = noticeService.getTitleSearchList(searchNotice);
+			noticeSearchList = noticeService.getTitleSearchList(searchNotice);
 		} else {
 			searchNotice.setUser_id(keyword);
-			NoticeSearchList = noticeService.getIdSearchNoticeList(searchNotice);
+			noticeSearchList = noticeService.getIdSearchNoticeList(searchNotice);
 		}
 
-		mav.setViewName("Notice/NoticeSearchList");
-		mav.addObject("NoticeSearchList", NoticeSearchList);
+		mav.setViewName("notice/NoticeSearchList");
+		mav.addObject("noticeSearchList", noticeSearchList);
 
 		return mav;
 	}

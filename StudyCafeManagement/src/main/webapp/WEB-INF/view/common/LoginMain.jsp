@@ -7,7 +7,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>베이직 스터디 카페입니다.</title>
 <style>
 .idInput {
 	font-size: 30px;
@@ -218,8 +218,8 @@ header, section {
 			<div class="cafe_menus">
 				<img src="" class="logo_image" width="40" height="40"> <a
 					href="/StudyCafeManagement/seat/register" class="Seat">좌석</a> <a href="/" class="Product">상품</a> <a
-					href="/StudyCafeManagement/board/BoardList" class="Community">커뮤니티</a> <a href="/"
-					class="Board">공지사항</a> <a href="/" class="Message">메시지</a>
+					href="/StudyCafeManagement/board/BoardList" class="Community">커뮤니티</a> <a href="/StudyCafeManagement/notice/NoticeList"
+					class="Notice">공지사항</a> <a href="/" class="Message">메시지</a>
 			</div>
 
 		</div>
@@ -313,18 +313,23 @@ header, section {
 
 
 				<table class="type01">
-					<tr>
-						<th scope="row">글번호</th>
-						<td>제목이 들어갑니다.</td>
-						<td>날자가 들어갑니다.</td>
-						<!-- 뒤에가 넘치면 밑으로 내려감.  -->
-					</tr>
-					<tr>
-						<th scope="row" class="even">글번호</th>
-						<td class="even">제목이 들어갑니다.</td>
-						<td class="even">날자가 들어갑니다.</td>
-					</tr>
-				</table>
+				<tr>
+			    	<th scope="row">글번호</th>
+			    	<th scope="row">제목</th>
+					<th scope="row">글쓴이</th>
+					<th scope="row">작성일</th>
+					<th scope="row">조회수</th>
+				</tr>
+			<c:forEach var="notice" items="${noticeList }">
+				<tr>
+		  			<td class="even">${notice.notice_number }</td>
+					<td class="even"><a href="/StudyCafeManagement/notice/NoticeDetail?notice_number=${notice.notice_number }">${notice.notice_title}</a></td>
+					<td class="even">${notice.user_id}</td>
+					<td class="even">${notice.notice_time}</td>
+					<td class="even">${notice.notice_readcount}</td>
+			    </tr>
+		  	</c:forEach>
+  		</table>
 
 			</div>
 

@@ -11,7 +11,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import basic.studyCafe.service.BoardService;
-import basic.studyCafe.service.SeatService;
 import basic.studyCafe.vo.BoardVO;
 
 @Controller
@@ -81,7 +80,6 @@ public class BoardController {
 	public ModelAndView viewBoardSearchList(@RequestParam(defaultValue = "board_title") String search_option,
 			@RequestParam("keyword") String keyword, BoardVO searchBoard) {
 		ModelAndView mav = new ModelAndView();
-		List<BoardVO> boardList = boardService.getBoardList();
 
 		List<BoardVO> boardSearchList;
 		if (search_option.equals("board_title")) {

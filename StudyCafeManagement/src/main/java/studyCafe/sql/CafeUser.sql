@@ -10,11 +10,9 @@ CREATE TABLE CafeUser(
 	user_birth varchar2(20) not null
 	);
 
+¾ÆÀÌµð unique
 
-CREATE TABLE CafeUser2(
-	user_id varchar2(20) primary key not null,
-	user_password varchar2(20) not null
-);
+alter table CafeUser add constraint unique_user_id unique (user_id);
 
 drop table CafeUser2 purge;
 

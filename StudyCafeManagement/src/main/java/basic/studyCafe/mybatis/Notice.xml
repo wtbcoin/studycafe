@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="basic.studyCafe.mybatis.NoticeMapper">
+	<!-- namespace가 Mapper 인터페이스의 풀패스와 동일해야 함 -->
+
+	<resultMap type="NoticeVO" id="NoticeVOResultMap">
+		<result property="notice_number" column="notice_number" />
+		<result property="user_id" column="user_id" />
+		<result property="notice_pagenumber" column="notice_pagenumber" />
+		<result property="notice_title" column="notice_title" />
+		<result property="notice_kind" column="notice_kind" />
+		<result property="notice_time" column="notice_time" />
+		<result property="notice_readcount" column="notice_readcount" />
+		<result property="notice_content" column="notice_content" />
+		<result property="notice_filename" column="notice_filename" />
+		<result property="notice_popup" column="notice_popup" />
+	</resultMap>
+
+
+	<select id="selectNoticeList" resultType="NoticeVO">
+		SELECT * FROM notice_info
+		ORDER BY notice_number DESC
+	</select>
+
+	<select id="selectNotice" resultType="NoticeVO"
+		parameterType="int">
+		SELECT * FROM notice_info WHERE notice_number =
+		#{notice_number}
+	</select>
+
+	<select id="selectTitleSearchList" resultType="NoticeVO"
+		parameterType="NoticeVO">
+		SELECT * FROM notice_info WHERE notice_title LIKE
+		'%'||#{notice_title}||'%'
+		ORDER BY notice_number DESC
+	</select>
+
+	<select id="selectIdSearchList" resultType="NoticeVO"
+		parameterType="NoticeVO">
+		SELECT * FROM notice_info WHERE user_id LIKE
+		'%'||#{user_id}||'%'
+		ORDER BY notice_number DESC
+	</select>
+
+	<insert id="insertArticle" parameterType="NoticeVO">
+		INSERT INTO notice_info
+		VALUES(notice_info_seq.nextval, #{user_id}, 1,
+		#{notice_title}, '커뮤',
+		sysdate, 1, #{notice_content}, '보류', 'F')
+	</insert>
+
+	<update id="updateNotice" parameterType="NoticeVO">
+		UPDATE notice_info SET
+		notice_title = #{notice_title}, notice_content =
+		#{notice_content} WHERE
+		notice_number = #{notice_number}
+	</update>
+
+	<update id="updateCount" parameterType="int">
+		UPDATE notice_info SET
+		notice_readcount = notice_readcount + 1
+		WHERE notice_number =
+		#{notice_number}
+
+	</update>
+
+	<delete id="deleteNotice" parameterType="int">
+		DELETE notice_info WHERE
+		notice_number = #{notice_number}
+	</delete>
+
+
+</mapper>

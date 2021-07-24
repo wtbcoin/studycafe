@@ -14,7 +14,6 @@
 </head>
 <body>
 	<hr>
-	<a href="NoticeList">게시판</a><br>
 	<form action="NoticeSearch" method="POST">
 		<select name="search_option">
 			<option value="notice_title">제목</option>
@@ -32,10 +31,10 @@
 			<th>조회수</th>
 
 		</tr>
-		<c:forEach var="notice" items="${noticeSearchList }">
+		<c:forEach var="notice" items="${noticeList }">
 			<tr>
 				<td>${notice.notice_number }</td>
-				<td><a href="BoardDetail?notice_number=${notice.notice_number }">${notice.notice_title}</a></td>
+				<td><a href="NoticeDetail?notice_number=${notice.notice_number }">${notice.notice_title}</a></td>
 				<td>${notice.user_id}</td>
 				<td>${notice.notice_time}</td>
 				<td>${notice.notice_readcount}</td>
@@ -44,6 +43,7 @@
 	</table>
 	<br>
 	<input type="button" value="글쓰기" onclick="fn_insert_form()">
+		<br><a href="/StudyCafeManagement/common/LoginMain">뒤로가기</a>
 
 </body>
 </html>
