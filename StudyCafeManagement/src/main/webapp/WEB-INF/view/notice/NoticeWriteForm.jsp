@@ -26,5 +26,6 @@
 			</tr>
 		</table>
 	</form>
+			<br><a href="/StudyCafeManagement/notice/NoticeList?user_id=${sessionScope.user_id }">이전</a>
 </body>
 </html>

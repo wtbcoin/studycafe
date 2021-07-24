@@ -41,5 +41,6 @@
 		</tr>
 		    
 	</table>
+			<br><a href="/StudyCafeManagement/common/LoginMain">메인화면</a>
 </body>
 </html>

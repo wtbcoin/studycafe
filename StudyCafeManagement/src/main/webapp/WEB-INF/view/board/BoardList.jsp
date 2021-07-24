@@ -20,6 +20,7 @@
 			<option value="board_user_id">글쓴이</option>
 		</select> <input type="text" name="keyword"> <input type="submit"
 			value="검색">
+			</form>
 	<hr>
 
 	<table border="1">
@@ -43,7 +44,7 @@
 	</table>
 	<br>
 	<input type="button" value="글쓰기" onclick="fn_insert_form()">
-		<br><a href="/StudyCafeManagement/common/LoginMain">뒤로가기</a>
+		<br><a href="/StudyCafeManagement/common/LoginMain">메인화면</a>
 
 </body>
 </html>

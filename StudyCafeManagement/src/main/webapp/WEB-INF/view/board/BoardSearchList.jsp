@@ -19,8 +19,11 @@
 		<select name="search_option">
 			<option value="board_title">제목</option>
 			<option value="board_user_id">글쓴이</option>
-		</select> <input type="text" name="keyword"> <input type="submit"
+		</select>
+		<input type="text" name="keyword">
+		<input type="submit"
 			value="검색">
+	</form>
 	<hr>
 
 	<table border="1">

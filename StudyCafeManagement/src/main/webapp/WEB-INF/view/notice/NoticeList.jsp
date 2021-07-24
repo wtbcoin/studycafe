@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>공지사항 목록</title>
 <script type="text/javascript">
 	function fn_insert_form(){
 		location.href = "NoticeInsert";
@@ -14,12 +14,15 @@
 </head>
 <body>
 	<hr>
-	<form action="NoticeSearch" method="POST">
+	<form action="NoticeSearch?user_id=${sessionScope.user_id}" method="POST">
 		<select name="search_option">
 			<option value="notice_title">제목</option>
 			<option value="notice_user_id">글쓴이</option>
-		</select> <input type="text" name="keyword"> <input type="submit"
+		</select>
+		<input type="text" name="keyword">
+		<input type="submit"
 			value="검색">
+	</form>
 	<hr>
 
 	<table border="1">
@@ -34,7 +37,7 @@
 		<c:forEach var="notice" items="${noticeList }">
 			<tr>
 				<td>${notice.notice_number }</td>
-				<td><a href="NoticeDetail?notice_number=${notice.notice_number }">${notice.notice_title}</a></td>
+				<td><a href="NoticeDetail?notice_number=${notice.notice_number }&user_id=${sessionScope.user_id}">${notice.notice_title}</a></td>
 				<td>${notice.user_id}</td>
 				<td>${notice.notice_time}</td>
 				<td>${notice.notice_readcount}</td>
@@ -43,7 +46,7 @@
 	</table>
 	<br>
 	<input type="button" value="글쓰기" onclick="fn_insert_form()">
-		<br><a href="/StudyCafeManagement/common/LoginMain">뒤로가기</a>
+		<br><a href="/StudyCafeManagement/common/LoginMain">메인화면</a>
 
 </body>
 </html>

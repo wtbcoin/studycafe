@@ -7,7 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-<form action="NoticeUpdate" method = "POST">
+<form action="NoticeUpdate?user_id=${sessionScope.user_id }" method = "POST">
 		<input type = "hidden" name = "notice_number" value = "${notice.notice_number }">
 		<table>
 			<tr>
@@ -27,5 +27,6 @@
 			</tr>
 		</table>
 	</form>
+		<br><a href="NoticeDetail?notice_number=${notice.notice_number }&user_id=${sessionScope.user_id}">이전</a>
 </body>
 </html>

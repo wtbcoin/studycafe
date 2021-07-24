@@ -7,7 +7,7 @@
 <title>Insert title here</title>
 <script>
 	function fn_list(){
-		location.href = "NoticeList";
+		location.href = "NoticeList?user_id=${sessionScope.user_id}";
 	}
 </script>
 </head>
@@ -33,13 +33,9 @@
 				${notice.notice_content }
 			</td>
 		</tr>
-		<tr>
-			<td colspan = "4">
-				<a href = "NoticeUpdate?notice_number=${notice.notice_number}">글수정</a>
-				<a href = "NoticeDelete?notice_number=${notice.notice_number}">글삭제</a>
-			</td>
-		</tr>
 		    
 	</table>
+			<br><a href="/StudyCafeManagement/common/LoginMain">메인화면</a>
+	
 </body>
 </html>

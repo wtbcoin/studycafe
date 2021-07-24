@@ -19,21 +19,33 @@ public class NoticeController {
 	private NoticeService noticeService;
 
 	@RequestMapping("/NoticeList")
-	public ModelAndView viewNoticeList() {
+	public ModelAndView viewNoticeList(@RequestParam String user_id) {
 		ModelAndView mav = new ModelAndView();
 		List<NoticeVO> noticeList = noticeService.getNoticeList();
-		mav.setViewName("notice/NoticeList");
 		mav.addObject("noticeList", noticeList);
+
+		if (user_id.equals("admin")) {
+			mav.setViewName("notice/NoticeList");
+		} else {
+			mav.setViewName("notice/UserNoticeList");
+		}
+
 		return mav;
 	}
 
 	@RequestMapping("/NoticeDetail")
-	public ModelAndView showNoticeDetail(@RequestParam int notice_number) {
+	public ModelAndView showNoticeDetail(@RequestParam int notice_number, @RequestParam String user_id) {
 		ModelAndView mav = new ModelAndView();
 		NoticeVO notice = noticeService.getNoticeDetail(notice_number);
 		noticeService.increaseCount(notice_number);
-		mav.setViewName("notice/NoticeDetail");
 		mav.addObject("notice", notice);
+
+		if (user_id.equals("admin")) {
+			mav.setViewName("notice/NoticeDetail");
+		} else {
+			mav.setViewName("notice/UserNoticeDetail");
+		}
+
 		return mav;
 	}
 
@@ -48,7 +60,7 @@ public class NoticeController {
 		notice.setUser_id(user_id);
 		noticeService.registArticle(notice);
 
-		return "redirect:/notice/NoticeList";
+		return "redirect:/notice/NoticeList?user_id=" + user_id;
 	}
 
 	@RequestMapping(value = "/NoticeUpdate", method = RequestMethod.GET)
@@ -63,23 +75,23 @@ public class NoticeController {
 	}
 
 	@RequestMapping(value = "/NoticeUpdate", method = RequestMethod.POST)
-	public String updateNotice(NoticeVO notice) {
+	public String updateNotice(NoticeVO notice, @RequestParam String user_id) {
 		noticeService.modifyNotice(notice);
-		return "redirect:/notice/NoticeList";
+		return "redirect:/notice/NoticeList?user_id=" + user_id;
 	}
 
 	@RequestMapping("/NoticeDelete")
-	public String removeNotice(@RequestParam int notice_number) {
+	public String removeNotice(@RequestParam int notice_number, @RequestParam String user_id) {
 		noticeService.removeNotice(notice_number);
-		return "redirect:/notice/NoticeList";
+		return "redirect:/notice/NoticeList?user_id=" +user_id;
 	}
 
 	@RequestMapping(value = "/NoticeSearch", method = RequestMethod.POST)
 	public ModelAndView viewNoticeSearchList(@RequestParam(defaultValue = "notice_title") String search_option,
-			@RequestParam("keyword") String keyword, NoticeVO searchNotice) {
+			@RequestParam("keyword") String keyword, NoticeVO searchNotice, @RequestParam String user_id) {
 		ModelAndView mav = new ModelAndView();
 		List<NoticeVO> noticeSearchList;
-		if (search_option.equals("Notice_title")) {
+		if (search_option.equals("notice_title")) {
 			searchNotice.setNotice_title(keyword);
 			noticeSearchList = noticeService.getTitleSearchList(searchNotice);
 		} else {
@@ -87,8 +99,13 @@ public class NoticeController {
 			noticeSearchList = noticeService.getIdSearchNoticeList(searchNotice);
 		}
 
-		mav.setViewName("notice/NoticeSearchList");
 		mav.addObject("noticeSearchList", noticeSearchList);
+
+		if (user_id.equals("admin")) {
+			mav.setViewName("notice/NoticeSearchList");
+		} else {
+			mav.setViewName("notice/UserNoticeSearchList");
+		}
 
 		return mav;
 	}

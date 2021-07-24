@@ -9,12 +9,5 @@ CREATE TABLE CafeUser(
 	user_email varchar2(30),
 	user_birth varchar2(20) not null
 	);
-
-¾ÆÀÌµð unique
-
-alter table CafeUser add constraint unique_user_id unique (user_id);
-
+	
 drop table CafeUser2 purge;
-
-insert into CafeUser2 values('afsdf222','1232421');
-commit

@@ -6,11 +6,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<script type="text/javascript">
-	function fn_insert_form(){
-		location.href = "NoticeInsert";
-	}
-</script>
+
 </head>
 <body>
 	<hr>
@@ -43,10 +39,6 @@
 			</tr>
 		</c:forEach>
 	</table>
-	<br>
-	<input type="button" value="글쓰기" onclick="fn_insert_form()">
 	<br><a href="/StudyCafeManagement/common/LoginMain">메인화면</a>
-	
-
 </body>
 </html>

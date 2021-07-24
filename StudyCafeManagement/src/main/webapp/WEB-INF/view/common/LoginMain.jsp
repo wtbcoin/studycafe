@@ -218,8 +218,9 @@ header, section {
 			<div class="cafe_menus">
 				<img src="" class="logo_image" width="40" height="40"> <a
 					href="/StudyCafeManagement/seat/register" class="Seat">좌석</a> <a href="/" class="Product">상품</a> <a
-					href="/StudyCafeManagement/board/BoardList" class="Community">커뮤니티</a> <a href="/StudyCafeManagement/notice/NoticeList"
-					class="Notice">공지사항</a> <a href="/" class="Message">메시지</a>
+					href="/StudyCafeManagement/board/BoardList" class="Community">커뮤니티</a>
+					<a href="/StudyCafeManagement/notice/NoticeList?user_id=${sessionScope.user_id}" class="Notice">공지사항</a>
+					<a href="/" class="Message">메시지</a>
 			</div>
 
 		</div>
@@ -323,7 +324,7 @@ header, section {
 			<c:forEach var="notice" items="${noticeList }">
 				<tr>
 		  			<td class="even">${notice.notice_number }</td>
-					<td class="even"><a href="/StudyCafeManagement/notice/NoticeDetail?notice_number=${notice.notice_number }">${notice.notice_title}</a></td>
+					<td class="even"><a href="/StudyCafeManagement/notice/NoticeDetail?notice_number=${notice.notice_number }&user_id=${sessionScope.user_id}">${notice.notice_title}</a></td>
 					<td class="even">${notice.user_id}</td>
 					<td class="even">${notice.notice_time}</td>
 					<td class="even">${notice.notice_readcount}</td>
