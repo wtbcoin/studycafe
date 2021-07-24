@@ -8,12 +8,13 @@
 <title>Insert title here</title>
 <script type="text/javascript">
 	function fn_insert_form(){
-		location.href = "BoardInsert";
+		location.href = "NoticeInsert";
 	}
 </script>
 </head>
 <body>
 	<hr>
+	<a href="BoardList">게시판</a><br>
 	<form action="BoardSearch" method="POST">
 		<select name="search_option">
 			<option value="board_title">제목</option>
@@ -31,19 +32,18 @@
 			<th>조회수</th>
 
 		</tr>
-		<c:forEach var="board" items="${boardList }">
+		<c:forEach var="notice" items="${noticeSearchList }">
 			<tr>
-				<td>${board.board_number }</td>
-				<td><a href="BoardDetail?board_number=${board.board_number }">${board.board_title}</a></td>
-				<td>${board.user_id}</td>
-				<td>${board.board_time}</td>
-				<td>${board.board_readcount}</td>
+				<td>${notice.notice_number }</td>
+				<td><a href="BoardDetail?notice_number=${notice.notice_number }">${notice.notice_title}</a></td>
+				<td>${notice.user_id}</td>
+				<td>${notice.notice_time}</td>
+				<td>${notice.notice_readcount}</td>
 			</tr>
 		</c:forEach>
 	</table>
 	<br>
 	<input type="button" value="글쓰기" onclick="fn_insert_form()">
-		<br><a href="/StudyCafeManagement/common/LoginMain">뒤로가기</a>
 
 </body>
 </html>

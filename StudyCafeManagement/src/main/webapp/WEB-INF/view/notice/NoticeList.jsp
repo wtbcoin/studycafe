@@ -8,16 +8,16 @@
 <title>Insert title here</title>
 <script type="text/javascript">
 	function fn_insert_form(){
-		location.href = "BoardInsert";
+		location.href = "NoticeInsert";
 	}
 </script>
 </head>
 <body>
 	<hr>
-	<form action="BoardSearch" method="POST">
+	<form action="NoticeSearch" method="POST">
 		<select name="search_option">
-			<option value="board_title">제목</option>
-			<option value="board_user_id">글쓴이</option>
+			<option value="notice_title">제목</option>
+			<option value="notice_user_id">글쓴이</option>
 		</select> <input type="text" name="keyword"> <input type="submit"
 			value="검색">
 	<hr>
@@ -31,13 +31,13 @@
 			<th>조회수</th>
 
 		</tr>
-		<c:forEach var="board" items="${boardList }">
+		<c:forEach var="notice" items="${noticeList }">
 			<tr>
-				<td>${board.board_number }</td>
-				<td><a href="BoardDetail?board_number=${board.board_number }">${board.board_title}</a></td>
-				<td>${board.user_id}</td>
-				<td>${board.board_time}</td>
-				<td>${board.board_readcount}</td>
+				<td>${notice.notice_number }</td>
+				<td><a href="NoticeDetail?notice_number=${notice.notice_number }">${notice.notice_title}</a></td>
+				<td>${notice.user_id}</td>
+				<td>${notice.notice_time}</td>
+				<td>${notice.notice_readcount}</td>
 			</tr>
 		</c:forEach>
 	</table>
