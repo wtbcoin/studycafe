@@ -7,7 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-<img src="logo.jpg" class="logo_image" width="40" height="40">
+<img src="pngtest.png" class="logo_image" width="40" height="40">
 				 
 </body>
 </html>
