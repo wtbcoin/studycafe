@@ -2,7 +2,6 @@ package basic.studyCafe.controller;
 
 import java.io.IOException;
 
-
 import java.io.PrintWriter;
 import java.util.List;
 
@@ -41,7 +40,7 @@ public class LoginController {
 
 	@Autowired
 	private NoticeService noticeService;
-	
+
 	@RequestMapping(value = "/LoginMain", method = RequestMethod.GET)
 	public ModelAndView LoginMain() {
 		ModelAndView mav = new ModelAndView();
@@ -51,9 +50,9 @@ public class LoginController {
 
 		List<NoticeVO> noticeList = noticeService.getNoticeList();
 		mav.addObject("noticeList", noticeList);
-		
+
 		mav.setViewName("common/LoginMain");
-		
+
 		return mav;
 	}
 
@@ -74,15 +73,15 @@ public class LoginController {
 		}
 
 		ModelAndView mav = new ModelAndView();
-		
+
 		List<BoardVO> boardList = boardService.getBoardList();
 		mav.addObject("boardList", boardList);
-		
+
 		List<NoticeVO> noticeList = noticeService.getNoticeList();
 		mav.addObject("noticeList", noticeList);
-		
+
 		mav.setViewName("common/LoginMain");
-		
+
 		return mav;
 	}
 
@@ -91,15 +90,15 @@ public class LoginController {
 		memberService.logoutMember(session);
 
 		ModelAndView mav = new ModelAndView();
-		
+
 		List<BoardVO> boardList = boardService.getBoardList();
 		mav.addObject("boardList", boardList);
-		
+
 		List<NoticeVO> noticeList = noticeService.getNoticeList();
 		mav.addObject("noticeList", noticeList);
-		
+
 		mav.setViewName("common/LoginMain");
-		
+
 		return mav;
 	}
 
@@ -109,9 +108,24 @@ public class LoginController {
 	}
 
 	@RequestMapping(value = "/join", method = RequestMethod.POST)
-	public String Join(MemberVO member) {
-		memberService.joinMember(member);
-		return "common/LoginMain";
+	public String Join(MemberVO member, HttpServletResponse response) throws IOException {
+		String path = "";
+		int duplicationCheck = memberService.checkUniqueId(member);
+		response.setContentType("text/html; charset=UTF-8");
+		PrintWriter out = response.getWriter();
+
+		if (duplicationCheck == 1) {
+			out.println("<script>alert('경고!! 중복된 아이디입니다.');</script>");
+			out.flush();
+			path = "common/JoinForm";
+		} else {
+			memberService.joinMember(member);
+			out.println("<script>alert('회원가입이 완료되었습니다.');</script>");
+			out.flush();
+			path = "common/LoginMain";
+		}
+
+		return path;
 	}
 
 	@RequestMapping(value = "/findIdForm", method = RequestMethod.GET)

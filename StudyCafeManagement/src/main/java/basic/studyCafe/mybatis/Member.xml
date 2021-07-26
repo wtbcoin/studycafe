@@ -47,6 +47,11 @@
 		SELECT * FROM CafeUser WHERE user_name = #{user_name} AND user_id = #{user_id}
 	</select>
 	
+	<select id = "getUniqueId" resultType = "int"
+	parameterType="MemberVO">
+		SELECT COUNT(*) FROM CafeUser WHERE user_id = #{user_id}	
+	</select>
+	
 	
 	<insert id="insertMemberVO" parameterType="memberVO">
 		INSERT INTO CafeUser VALUES(#{user_id}, #{user_password}, #{user_checkpw}, #{user_name}, #{user_gender}, #{user_phone}, #{user_address}, #{user_email}, #{user_birth})

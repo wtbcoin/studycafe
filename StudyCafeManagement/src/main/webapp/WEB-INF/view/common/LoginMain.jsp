@@ -249,7 +249,8 @@ header, section {
 			<c:forEach var="board" items="${boardList }">
 				<tr>
 		  			<td class="even">${board.board_number }</td>
-					<td class="even"><a href="/StudyCafeManagement/board/BoardDetail?board_number=${board.board_number }">${board.board_title}</a></td>
+					<td class="even"><a href="/StudyCafeManagement/board/BoardDetail?board_number=${board.board_number }&user_id=${sessionScope.user_id}
+					&writer=${board.user_id }">${board.board_title}</a></td>
 					<td class="even">${board.user_id}</td>
 					<td class="even">${board.board_time}</td>
 					<td class="even">${board.board_readcount}</td>

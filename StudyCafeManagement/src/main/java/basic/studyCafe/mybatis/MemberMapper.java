@@ -12,6 +12,6 @@ public interface MemberMapper {
 	MemberVO getFindIdMember(MemberVO member);
 	int getMemberPassword(MemberVO member);
 	MemberVO getFindPasswordMember(MemberVO member);
-	
+	MemberVO getUniqueId(MemberVO member);
 	
 }

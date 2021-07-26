@@ -11,7 +11,7 @@
 		<table>
 			<tr>
 				<td>게시글제목</td>
-				<td><input type="text" name="notice_title" /></td>
+				<td><input type="text" name="notice_title" required/></td>
 			</tr>
 			<tr>
 				<td><input type="hidden" name="user_id"
@@ -19,7 +19,7 @@
 			</tr>
 			<tr>
 				<td>게시글내용</td>
-				<td><textarea name="notice_content" cols="20" rows="10"></textarea></td>
+				<td><textarea name="notice_content" cols="20" rows="10" required></textarea></td>
 			</tr>
 			<tr>
 				<td colspan="3"><input type="submit" value="글등록"></td>

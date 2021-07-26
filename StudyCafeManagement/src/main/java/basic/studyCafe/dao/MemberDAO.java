@@ -14,6 +14,7 @@ public interface MemberDAO {
 	public int getMemberPassword(MemberVO member);
 	public MemberVO getFindPasswordMember(MemberVO member);
 	public MemberVO getMemberVO(MemberVO member);
+	public int getUniqueId(MemberVO member);
 	
 
 }

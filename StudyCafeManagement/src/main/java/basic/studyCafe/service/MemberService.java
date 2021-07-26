@@ -18,5 +18,6 @@ public interface MemberService {
 	public int checkMemberPassword(MemberVO member);
 	public MemberVO getFindPasswordMember(MemberVO member);
 	public void logoutMember(HttpSession session);
+	public int checkUniqueId(MemberVO member);
 
 }

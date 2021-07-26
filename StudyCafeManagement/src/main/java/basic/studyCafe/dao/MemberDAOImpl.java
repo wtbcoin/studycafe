@@ -66,5 +66,11 @@ public class MemberDAOImpl implements MemberDAO {
 		MemberVO findMember = memberMapper.getFindPasswordMember(member);
 		return findMember;
 	}
+	
+	@Override
+	public int getUniqueId(MemberVO member) {
+		// TODO Auto-generated method stub
+		return sqlSession.selectOne("basic.studyCafe.mybatis.MemberMapper.getUniqueId", member);
+	}
 
 }

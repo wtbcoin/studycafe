@@ -31,12 +31,19 @@ public class BoardController {
 	}
 
 	@RequestMapping("/BoardDetail")
-	public ModelAndView showBoardDetail(@RequestParam int board_number) {
+	public ModelAndView showBoardDetail(@RequestParam int board_number, @RequestParam String user_id, @RequestParam String writer) {
 		ModelAndView mav = new ModelAndView();
 		BoardVO board = boardService.getBoardDetail(board_number);
 		boardService.increaseCount(board_number);
-		mav.setViewName("board/BoardDetail");
 		mav.addObject("board", board);
+		
+		if(user_id.equals(writer)) {
+			mav.setViewName("board/BoardDetail");
+		}
+		else{
+			mav.setViewName("board/BoardReadOnlyDetail");
+		}
+
 		return mav;
 	}
 	@RequestMapping(value = "/BoardInsert", method = RequestMethod.GET)

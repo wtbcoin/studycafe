@@ -13,11 +13,11 @@
 			<tr>
 				<td>게시글제목</td>
 				<td><input type = "text" name = "board_title"
-				value = "${board.board_title }"/></td>
+				value = "${board.board_title }" required/></td>
 			</tr>
 			<tr>
 				<td>게시글내용</td>
-				<td><textarea name = "board_content" cols = "20" rows = "10">${board.board_content }</textarea></td>
+				<td><textarea name = "board_content" cols = "20" rows = "10" required>${board.board_content }</textarea></td>
 			</tr>
 			<tr>
 				<td colspan = "3">

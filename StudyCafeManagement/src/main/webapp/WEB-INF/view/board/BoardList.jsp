@@ -35,7 +35,8 @@
 		<c:forEach var="board" items="${boardList }">
 			<tr>
 				<td>${board.board_number }</td>
-				<td><a href="BoardDetail?board_number=${board.board_number }">${board.board_title}</a></td>
+				<td><a href="BoardDetail?board_number=${board.board_number }&user_id=${sessionScope.user_id}
+					&writer=${board.user_id }">${board.board_title}</a></td>
 				<td>${board.user_id}</td>
 				<td>${board.board_time}</td>
 				<td>${board.board_readcount}</td>

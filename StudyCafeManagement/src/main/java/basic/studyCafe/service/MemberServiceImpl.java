@@ -2,7 +2,6 @@ package basic.studyCafe.service;
 
 import java.util.ArrayList;
 
-
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -34,7 +33,7 @@ public class MemberServiceImpl implements MemberService {
 		// TODO Auto-generated method stub
 		return memberDAO.getMemberVO(member);
 	}
-	
+
 	@Override
 	public void logoutMember(HttpSession session) {
 		// TODO Auto-generated method stub
@@ -71,6 +70,10 @@ public class MemberServiceImpl implements MemberService {
 		// TODO Auto-generated method stub
 		return memberDAO.getFindPasswordMember(member);
 	}
-	
 
+	@Override
+	public int checkUniqueId(MemberVO member) {
+		// TODO Auto-generated method stub
+		return memberDAO.getUniqueId(member);
+	}
 }

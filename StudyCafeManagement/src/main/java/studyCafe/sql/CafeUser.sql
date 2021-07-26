@@ -10,4 +10,4 @@ CREATE TABLE CafeUser(
 	user_birth varchar2(20) not null
 	);
 	
-drop table CafeUser2 purge;
+drop table CafeUser purge;
