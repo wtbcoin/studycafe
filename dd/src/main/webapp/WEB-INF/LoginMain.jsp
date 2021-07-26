@@ -1,6 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
 <!DOCTYPE html>
 
@@ -216,7 +215,7 @@ header, section {
 				style="color:white; margin:3px; font-size:40px; font-weight:bold;">베이직
 			스터디 카페</h7>
 			<div class="cafe_menus">
-				<img src="../resources/images/logo.jpg" class="logo_image" width="40" height="40">
+				<img src="logo.jpg" class="logo_image" width="40" height="40">
 				  <a
 					href="/StudyCafeManagement/seat/register" class="Seat">좌석</a> <a href="/" class="Product">상품</a> <a
 					href="/StudyCafeManagement/board/BoardList" class="Community">커뮤니티</a>
