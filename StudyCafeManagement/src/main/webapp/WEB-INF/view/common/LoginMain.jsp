@@ -216,7 +216,7 @@ header, section {
 				style="color:white; margin:3px; font-size:40px; font-weight:bold;">베이직
 			스터디 카페</h7>
 			<div class="cafe_menus">
-				<img src="../resources/images/logo.jpg" class="logo_image" width="40" height="40">
+				<img src="/StudyCafeManagement/resources/images/logo.jpg" class="logo_image" width="40" height="40">
 				  <a
 					href="/StudyCafeManagement/seat/register" class="Seat">좌석</a> <a href="/" class="Product">상품</a> <a
 					href="/StudyCafeManagement/board/BoardList" class="Community">커뮤니티</a>
@@ -264,7 +264,7 @@ header, section {
 			<div class="temp-box">
 				좌석
 				<hr>
-				<img src="" class="Seat_image" width=230px height=230px
+				<img src="/StudyCafeManagement/resources/images/seat.JPG" class="Seat_image" width=230px height=230px
 					style="margin: 50px;"> <input type="button" value="예약"
 					onclick="fn_res_form()"
 					style="float: center; margin: 50px; font-size: 50px;">
