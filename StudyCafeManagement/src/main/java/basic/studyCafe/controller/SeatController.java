@@ -1,6 +1,10 @@
 package basic.studyCafe.controller;
 
+import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.List;
+
+import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -33,12 +37,14 @@ public class SeatController {
 	@RequestMapping(value = "/reserve", method = RequestMethod.POST)
 	public String reserveSeat(@RequestParam("seatNum") int seatNum, @RequestParam("user_id") String user_id,
 			SeatVO seat) {
+
 		seat.setSeat_number(seatNum);
 		seat.setUser_id(user_id);
 		seatService.registSeat(seat);
+
 		return "redirect:/seat/register";
 	}
-	
+
 	@RequestMapping(value = "/return", method = RequestMethod.POST)
 	public String returnSeat(@RequestParam("seatNum") int seatNum, SeatVO seat) {
 		seat.setSeat_number(seatNum);

@@ -14,6 +14,7 @@ CREATE TABLE Notice_info(
 );
 
 create sequence Notice_info_seq;
+alter table Notice_info modify notice_title varchar2(100);
 
 
 drop table Notice_info;

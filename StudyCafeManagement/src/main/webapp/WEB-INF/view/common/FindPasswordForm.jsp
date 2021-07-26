@@ -6,7 +6,7 @@
 <meta charset="UTF-8">
 <title>로그인</title>
 <style>
-form {
+form{
 	text-align: center;
 	margin: 0 auto;
 }
@@ -19,10 +19,6 @@ form {
 	border-radius: 10%;
 }
 
-img {
-	margin-top: 20px;
-	margin-bottom: 80px;
-}
 
 input {
 	width: 300px;
@@ -42,8 +38,10 @@ input {
 				placeholder="아이디를 입력해주세요."><br> <br>
 			<input
 				type="submit" value="확인"><br> <br>
+						<br><a href="/StudyCafeManagement/common/LoginMain">메인화면</a>
 		</form>
 	</div>
+	
 
 </body>
 </html>

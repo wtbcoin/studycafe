@@ -10,12 +10,30 @@
 		location.href = "LoginMain";
 	}
 </script>
+<style>
+form{
+	text-align: center;
+	margin: 0 auto;
+}
+.border {
+	margin: 0 auto;
+	width: 600px;
+	height: 500px;
+	border: 1px solid #000;
+	border-radius: 10%;
+}
+input {
+	width: 300px;
+}
+</style>
 </head>
 <body>
+	<div class="border">
 	<form action ="join" method="POST">
+	<h1>회원가입</h1>
 		<!-- 아이디 -->
 		<div class="form-group">
-			<label for="user_id">아이디</label> <input type="text"
+			<label for="user_id">아이디</label><input type="text"
 				class="form-control" id="user_id" name="user_id" placeholder="ID"
 				required>
 			<div class="check_font" id="id_check"></div>
@@ -76,11 +94,13 @@
 				placeholder="ex) 19980203" required>
 			<div class="check_font" id="birth_check"></div>
 		</div>
-		
+		<br>
 		<input type = "submit" value = "가입"/>
-
-	</form>
-	
+		<br><br>
 		<button onclick="gotoBack()">취소하기</button>
+	</form>
+	</div>
+	
+
 </body>
 </html>

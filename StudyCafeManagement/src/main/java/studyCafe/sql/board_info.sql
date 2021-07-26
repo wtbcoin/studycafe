@@ -14,10 +14,9 @@ CREATE TABLE Board_info(
 );
 
 create sequence Board_info_seq;
+alter table Board_info modify board_title varchar2(100);
 
-ALTER TABLE Board_info
-ADD CONSTRAINT board_user_id FOREIGN KEY(user_id) 
-REFERENCES User(user_id));
+
 
 INSERT INTO board_info VALUES(Board_info_seq.nextval, 'aaa', 1, 'dsfsd', 'Ä¿¹Â',  sysdate, 1, 'dsfds', 'º¸·ù', 'F')
 
