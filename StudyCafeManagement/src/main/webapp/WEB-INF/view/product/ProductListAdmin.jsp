@@ -135,8 +135,8 @@ body { margin:0; padding:0; font-family:'맑은 고딕', verdana; }
 <section id = "content">
 
 			<h3>상품 목록</h3>
-			<br>
-		    <hr>
+		      <a href="ProductRegist">상품 등록</a>
+		      <hr>
 				   
 				   
 		<c:if test="${empty productList }">
@@ -164,7 +164,7 @@ body { margin:0; padding:0; font-family:'맑은 고딕', verdana; }
 					</tr><br>
 					<tr>가격 : ${product.prod_price }원 
 					</tr><br>
-					<tr><a href="ProductDetailAdmin?prod_number=${product.prod_number}"> 관리자 상품 디테일</a>
+					<tr><a href="ProductDetailAdmin?prod_number=${product.prod_number}"> 상품 관리</a>
 					</tr>
 					</td>
 					<hr>
